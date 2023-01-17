@@ -1,0 +1,45 @@
+Grid
+
+    • Grid Container
+        ◦ grid-template-rows – it specifies the number of rows
+        ◦ grid-template-columns – it specifies the number of columns
+        ◦ justify-content and align-items (for h.align and v.align)
+            ▪ space-around
+            ▪ space-evenly
+            ▪ space-between
+            ▪ center
+            ▪ start
+            ▪ end
+        ◦ grid-template-areas – defined in the second page
+    • Grid Item
+        ◦ grid-column ---- used for colspan (Shorthand property for grid-column-start and grid-column-end ) 
+            ▪ Format 1 
+                • 1/5 it means column start from one and ends in 4th column
+            ▪ Format 2
+                • 1/span 4 means including 1st it will take 4 columns
+            ▪ here in 1/4 or 1/5 1 is representing that column join will start from 1st column
+        ◦ grid-row ------ used for row span (format is same as above)(Shorthand property for grid-row-start and grid-row-end ) 
+        ◦ grid-area ( Shorthand property for grid-column-start and grid-column-end grid-row-start and grid-row-end )  
+            ▪ FORMAT 1 
+                • grid-area : 1 / 2 / 5 / 6;
+                • start (row 1 / column 2) / end(row 5 / column 6 )
+            ▪ FORMAT 2
+                • grid-area: 2 / 1 / span 2 / span 3;
+                • Start(row 2 / column 1 ) and took area row 2 and columns 3
+
+Grid Area
+The Official use of the grid
+
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+}
+'footer . . .' the period represents the grid item with no name
