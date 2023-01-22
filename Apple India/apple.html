@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple (India)</title>
+    <link rel="shortcut icon" href="Apple (India).ico" type="image/x-icon">
+    <style>
+        * {
+            box-sizing: border-box;
+            text-decoration: none;
+            /* font-family: Arial, Helvetica, sans-serif; */
+        }
+
+        body {
+            margin: 0px;
+            background-color: black;
+            height: 10000px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            height: 49px;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            top: 0px;
+            left: 0px;
+            position: sticky;
+            backdrop-filter: saturate(180%) blur(20px);
+            z-index: 2000;
+        }
+
+        /* .mainimg {
+            position: relative;
+            height: 20px;
+            width: 20px;
+            background-image: url("Apple\ \(India\).ico");
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 25px;
+        } */
+
+        .mainimg:hover {
+            cursor: pointer;
+            background-image: url("apple.png");
+        }
+
+        .menus {
+            height: 100%;
+            margin-right: 48px;
+            display: flex;
+            align-items: center;
+        }
+
+        .menus a {
+            color: #c7c7cb;
+            font-size: 13px;
+        }
+
+        .menus a:hover {
+            color: white;
+        }
+
+        .film {
+            height: 16px;
+            width: 16px;
+        }
+
+        .film:hover {
+            background-color: rgba(8, 8, 8, .3);
+        }
+
+        .search {
+            background-image: url("search.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 16px;
+            height: 16px;
+            /* margin-bottom: 2px; */
+        }
+
+        .shopping {
+            background-image: url("https://www.apple.com/ac/globalnav/7/en_IN/images/be15095f-5a20-57d0-ad14-cf4c638e223a/globalnav_bag_image__yzte50i47ciu_large.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+            margin-top: 1px;
+            height: 100%;
+        }
+
+        .appleicon {
+            background-image: url("apple.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 16px;
+            height: 16px;
+            margin-right: 40px;
+            margin-bottom: 4px;
+        }
+
+        .applefilm {
+            height: 16px;
+            width: 16px;
+            background-color: rgba(8, 8, 8, .3);
+        }
+
+        .applefilm:hover {
+            background-color: rgba(8, 8, 8, 0);
+        }
+
+        .ad {
+            width: 100%;
+            height: 50px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad div {
+            font-size: 15px;
+        }
+
+        .ad a {
+            color: #0066CC;
+            /* display: none; */
+        }
+
+        /* .hov{
+            height: 20px;
+            background-color: rgb(224, 251, 252);
+            margin: 50px ;
+            width: 100%;
+            display: flex;
+        }
+        .out{
+            background-color: white;
+            height: 20px;
+            margin-left: 10px;
+        }
+        .first{
+            width: 16px;
+            height: 20px;
+            background-color: rgb(164, 206, 182);
+            overflow: hidden;
+        }
+        .first:hover{
+            width: auto;
+            overflow: visible;
+        } */
+
+        .introduction {
+            display: flex;
+            width: 100%;
+            height: 370px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+        }
+
+        .introduction .text {
+            color: white;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .itbutton {
+            position: relative;
+            padding: 15px 25px;
+            background: black;
+            border-radius: 100px;
+            color: white;
+            display: flex;
+            gap: 10px;
+            font-size: 19px;
+        }
+
+        .itbutton:hover {
+            position: relative;
+            padding: 15px 25px;
+            background: white;
+            border-radius: 100px;
+            color: black;
+            display: flex;
+            gap: 10px;
+            font-size: 19px;
+        }
+
+        .itbutton::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+
+            margin: -2px;
+            border-radius: inherit;
+            background-image: linear-gradient(135deg, rgb(255, 102, 0), rgb(245, 80, 108), purple, rgb(58, 58, 245), rgb(58, 58, 245));
+        }
+
+        .playbtn {
+            width: 18px;
+            height: 18px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .playimage {
+            width: 8px;
+            height: 8px;
+            background-image: url("play-icon-first.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: 4px;
+        }
+
+        .playbtn:hover {
+            background-image: url("playbutton.svg");
+            width: 18px;
+            height: 18px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mackbookpro {
+            display: flex;
+            margin-top: 100px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .macbottom {
+            font-size: 23px;
+            color: #2997ff;
+        }
+
+        .gridmacbottom {
+            font-size: 15px;
+            color: #2997ff;
+        }
+
+        .gridmacbottom:hover {
+            text-decoration: underline;
+        }
+
+        .arrow {
+            font-size: 20px;
+            color: #2997ff;
+        }
+
+        .gridarrow {
+            font-size: 13px;
+            color: #2997ff;
+        }
+
+        .macbottom:hover {
+            text-decoration: underline;
+        }
+
+        .whitestrip {
+            width: 100%;
+            height: 13px;
+            background-color: white;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 13px;
+            background-color: white;
+            padding: 13px;
+        }
+
+        .gallery a {
+            background-color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="appleicon"><a href="">
+                <div class="applefilm"></div>
+            </a></div>
+        <div class="menus"><a href="">Store</a> </div>
+        <div class="menus"><a href="">Mac</a> </div>
+        <div class="menus"><a href=""> iPad</a> </div>
+        <div class="menus"><a href=""> iPhone</a> </div>
+        <div class="menus"><a href="">Watch</a> </div>
+        <div class="menus"><a href=""> AirPods</a> </div>
+        <div class="menus"><a href=""> TV & Home</a> </div>
+        <div class="menus"><a href=""> Only on Apple</a> </div>
+        <div class="menus"><a href=""> Accessories</a> </div>
+        <div class="menus"><a href=""> Support</a> </div>
+        <div class="search"><a href="">
+                <div class="film"></div>
+            </a></div>
+        <div class="shopping"><a href="">
+                <div class="film"></div>
+            </a></div>
+    </div>
+    <div class="ad">
+        <div>Get up to ₹10000 instant savings on selected products with HDFC Bank credit cards. <sup>‡</sup> Plus No
+            Cost EMI from
+            most leading banks. <sup>‡‡</sup> <a href="">Shop now ></a></div>
+    </div>
+    <!-- <div class="hov"><div class="first">U<span class="out" >Yash Agrawal</span></div><span class="para" style="background-color: yellow;">sfkljalsjf</span></div> -->
+
+    <div class="introduction">
+        <div class="text">
+            <h1>Introducing the new <br> MacBook Pro and Mac mini.</h1>
+        </div>
+        <div class="itbutton">Watch the announcement
+            <div class="playbtn">
+                <div class="playimage"></div>
+            </div>
+        </div>
+    </div>
+    <a href="" class="mackbookpro">
+        <div>
+            <div style="color: white; font-size: 28px; display: flex; justify-content: center;">
+                <h1 style="margin-bottom: 10px;">MacBook Pro</h1>
+            </div>
+            <p
+                style="font-size: 28px; text-align: center;color: white; width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                Supercharged by M2 Pro and M2 Max</p>
+            <p style="color: grey; font-size: 23px; text-align: center; margin: 13px auto 15px auto; ">Available
+                starting from 24 Jan</p>
+            <div style="display: flex; justify-content: center;gap: 45px; ">
+                <div style="display: flex;">
+                    <div class="macbottom">Learn more </div>
+                    <div class="arrow" style="display: flex; align-items: center; margin-top: 5px; margin-left:3px;">>
+                    </div>
+                </div>
+                <div style="display: flex;">
+                    <div class="macbottom">Order now</div>
+                    <div class="arrow" style="display: flex; align-items: center; margin-top: 5px;margin-left:3px;">>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 25px;">
+                <img style="height: 410px;" src="Macbookpro.png" alt="">
+            </div>
+        </div>
+    </a>
+    <div class="whitestrip"></div>
+
+    <a href="" class="mackbookpro" style="margin-top: 20px;">
+        <div>
+            <div style="color: white; font-size: 28px; display: flex; justify-content: center;">
+                <h1 style="margin-bottom: 10px;">Mac mini</h1>
+            </div>
+            <p
+                style="font-size: 28px; text-align: center;color: white; width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                Supercharged by M2 and M2 Pro</p>
+            <p style="color: grey; font-size: 23px; text-align: center; margin: 13px auto 15px auto; ">Available
+                starting from 24 Jan</p>
+            <div style="display: flex; justify-content: center;gap: 45px; ">
+                <div style="display: flex;">
+                    <div class="macbottom">Learn more </div>
+                    <div class="arrow" style="display: flex; align-items: center; margin-top: 5px; margin-left:3px;">>
+                    </div>
+                </div>
+                <div style="display: flex;">
+                    <div class="macbottom">Order now</div>
+                    <div class="arrow" style="display: flex; align-items: center; margin-top: 5px;margin-left:3px;">>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 55px;">
+                <img style=" width: 1100px;" src="macmini (1).png" alt="">
+            </div>
+        </div>
+    </a>
+    <div class="whitestrip"></div>
+
+    <a href="" class="mackbookpro" style="margin-top: 20px;">
+        <div>
+            <div style="color: white; font-size: 28px; display: flex; justify-content: center;">
+                <h1 style="margin-bottom: 10px;">HomePod</h1>
+            </div>
+            <p
+                style="font-size: 28px; text-align: center;color: white; width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                Profound Sound</p>
+            <p style="color: grey; font-size: 23px; text-align: center; margin: 13px auto 15px auto; ">Available
+                starting from 3 Feb</p>
+            <div style="display: flex; justify-content: center;gap: 45px; ">
+                <div style="display: flex;">
+                    <div class="macbottom">Learn more</div>
+                    <div class="arrow" style="display: flex; align-items: center; margin-top: 5px; margin-left:3px;">>
+                    </div>
+                </div>
+                <div style="display: flex;">
+                    <div class="macbottom">Order now</div>
+                    <div class="arrow" style="display: flex; align-items: center; margin-top: 5px;margin-left:3px;">>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 55px;">
+                <img style="width: 1200px;" src="homepod (1).png" alt="">
+            </div>
+        </div>
+    </a>
+
+    <div class="gallery">
+        <a href="" class="mackbookpro" style="margin-top: 0px;">
+            <div style="height: 50%;">
+                <div style="color: white; display: flex; justify-content: center;">
+                    <p
+                        style="margin-top: 50px; margin-bottom: 5px; text-align: center; font-size: 35px; font-weight: 600;">
+                        Creativity and <br> community. <br> Woven together.</p>
+                </div>
+                <p
+                    style="font-size: 18px; text-align: center;color: white; width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                    Explore the new Black Unity watch <br>strap and matching face.</p>
+                <div style="display: flex; justify-content: center;gap: 25px;margin-top: 20px; ">
+                    <div style="display: flex; align-items: center;">
+                        <div class="gridmacbottom">Learn more</div>
+                        <div class="gridarrow"
+                            style="display: flex; align-items: center; margin-top: 1px; margin-left: 2px;">></div>
+                    </div>
+                    <div style="display: flex;align-items: center;">
+                        <div class="gridmacbottom">Buy</div>
+                        <div class="gridarrow"
+                            style="display: flex; align-items: center; margin-top: 1px; margin-left: 2px;">></div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: flex-end; height: 50%;">
+                    <img style="width: 100%;" src="firstwatch.png" alt="">
+            </div>
+        </a>
+
+        <a href="" class="mackbookpro" style="margin-top: 0px;">
+            <div style="height: 50%;">
+                <div style="color: white; display: flex; justify-content: center; align-items: flex-end;"><img style="height: 30px; margin-bottom: 11px; margin-right: 3px;" src="apple.png" alt="">
+                    <p style="margin-top: 40px; margin-bottom: 5px; text-align: center; font-size: 30px; font-weight: 600;">WATCH</p>
+                </div>
+                <p style="color: rgb(185, 4, 4); margin-bottom: 10px;margin-top: -5px; text-align: center; font-size: 12px;">SERIES 8</p>
+                <p
+                    style="font-size: 18px; text-align: center;color: white; width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                    A healthy leap ahead</p>
+                <div style="display: flex; justify-content: center;gap: 25px;margin-top: 20px; ">
+                    <div style="display: flex; align-items: center;">
+                        <div class="gridmacbottom">Learn more</div>
+                        <div class="gridarrow"
+                            style="display: flex; align-items: center; margin-top: 1px; margin-left: 2px;">></div>
+                    </div>
+                    <div style="display: flex;align-items: center;">
+                        <div class="gridmacbottom">Buy</div>
+                        <div class="gridarrow"
+                            style="display: flex; align-items: center; margin-top: 1px; margin-left: 2px;">></div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: flex-end; height: 50%;">
+                    <img style="width: 100%;" src="watch.png" alt="">
+            </div>
+        </a>
+
+        <a href="" class="mackbookpro" style="margin-top: 0px;">
+            <div style="height: 50%;">
+                <div style="color: white; display: flex; justify-content: center; align-items: flex-end;">
+                    <p style="margin-top: 40px; margin-bottom: 5px; text-align: center; font-size: 30px; font-weight: 600;">iPhone 14 Pro</p>
+                </div>
+                <p
+                    style="font-size: 18px; text-align: center;color: white; width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                    Pro. Beyond.</p>
+
+                <div class="5gbtn" style="border:solid #6e6e73; color: #6e6e73;padding: 3px 1px;display: flex; justify-content: center;border-radius: 20px; margin: 8px 35px; font-size: 12px;">With superfast 5G<sup>*</sup></div>
+
+                <div style="display: flex; justify-content: center;gap: 25px;margin-top: 20px; ">
+                    <div style="display: flex; align-items: center;">
+                        <div class="gridmacbottom">Learn more</div>
+                        <div class="gridarrow"
+                            style="display: flex; align-items: center; margin-top: 1px; margin-left: 2px;">></div>
+                    </div>
+                    <div style="display: flex;align-items: center;">
+                        <div class="gridmacbottom">Buy</div>
+                        <div class="gridarrow"
+                            style="display: flex; align-items: center; margin-top: 1px; margin-left: 2px;">></div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: flex-end; height: 50%;">
+                    <img style="width: 100%;" src="iphone 14pro.png" alt="">
+            </div>
+        </a>
+    </div>
+
+</body>
+
+</html>

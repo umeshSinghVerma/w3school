@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Container</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .maincontainer{
+            border:solid green 3px;
+            background-color: lawngreen;
+            padding: 5px;
+        }
+        .header{
+            border: solid blue 3px;
+            background-color: skyblue;
+            display: flex;
+            padding: 7px;
+            justify-content: space-between;
+        }
+        .hboxex{
+            border: solid rgb(255, 102, 0) 3px;
+            background-color: rgb(245, 206, 133);
+            height: 50px;
+            width: 33%;
+            margin: 5px;
+            padding: 3px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .innerbox{
+            height: 100%;
+            width: 50%;
+            border: solid red 3px;
+            background-color: pink;
+        }
+        .main{
+            display: flex;
+            margin: 7px 0px ;
+            height: 150px;
+        }
+        .main1{
+            width: 50%;
+            height: 100%;
+            border: solid brown 3px;
+            margin-right: 5px;
+            background-color: pink;
+        }
+        .main2{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 50%;
+        }
+        .main21{
+            width: 100%;
+            height: 48.5%;
+            border: solid brown 3px;
+            background-color: pink;
+        }
+        .footer{
+            display: flex;
+            border: solid blue 3px;
+            background-color: skyblue;
+            padding: 7px;
+            justify-content: space-between;
+        }
+        .f1{
+            height: 50px;
+            width: 32%;
+            border: solid rgb(38, 18, 38) 3px;
+            background-color: rgb(235, 169, 235);
+        }
+        .f2{
+            height: 50px;
+            width: 16%;
+            border: solid rgb(244, 139, 156) 3px;
+            background-color: rgb(241, 201, 125);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="maincontainer">
+        <div class="header">
+            <div class="hboxex"></div>
+            <div class="hboxex">
+                <div class="innerbox"></div>
+                <div class="innerbox"></div>
+            </div>
+            <div class="hboxex"></div>
+        </div>
+
+        <div class="main">
+            <div class="main1"></div>
+            <div class="main2">
+                <div class="main21"></div>
+                <div class="main21"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="f1"></div>
+            <div class="f2"></div>
+            <div class="f2"></div>
+            <div class="f1"></div>
+        </div>
+    </div>    
+</body>
+</html>
