@@ -17,7 +17,7 @@
         body {
             margin: 0px;
             background-color: black;
-            height: 10000px;
+            /* height: 10000px; */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         }
 
@@ -292,6 +292,79 @@
         .gallery a {
             background-color: black;
         }
+
+        .footergridwala>div {
+            width: 100%;
+        }
+
+        .footergridwala>div:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .slider-frame {
+            overflow: hidden;
+            background-color: white;
+            height: 800px;
+            width: 1200px;
+            margin:auto;
+            margin-top: 20px;
+        }
+
+        /*---------- SLIDE ANIMATION --------------*/
+
+
+        @keyframes slide_animation {
+            0% {left: 0px;}
+            10% {left: 0px;}
+            20% {left: 1200px;}
+            30% {left: 1200px;}
+            40% {left: 2400px;}
+            50% {left: 2400px;}
+            60% {left: 1200px;}
+            70% {left: 1200px;}
+            80% {left: 0px;}
+            90% {left: 0px;}
+            100% {left: 0px;}
+        }
+
+        @-webkit-keyframes slide_animation {
+            0% {left: 0px;}
+            10% {left: 0px;}
+            20% {left: 1200px;}
+            30% {left: 1200px;}
+            40% {left: 2400px;}
+            50% {left: 2400px;}
+            60% {left: 1200px;}
+            70% {left: 1200px;}
+            80% {left: 0px;}
+            90% {left: 0px;}
+            100% {left: 0px;}
+        }
+
+        .slide-images {
+            width: 14400px;
+            height: 800px;
+            margin: 0 0 0 -2400px;
+            position: relative;
+            -webkit-animation-name: slide_animation;
+            animation-name: slide_animation;
+            -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+            -webkit-animation-play-state: running;
+            animation-play-state: running;
+        }
+
+        .img-container {
+            height: 800px;
+            width: 1200px;
+            position: relative;
+            float: left;
+        }
     </style>
 
 </head>
@@ -446,16 +519,21 @@
                 </div>
             </div>
             <div style="display: flex; align-items: flex-end; height: 50%;">
-                    <img style="width: 100%;" src="firstwatch.png" alt="">
+                <img style="width: 100%;" src="firstwatch.png" alt="">
             </div>
         </a>
 
         <a href="" class="mackbookpro" style="margin-top: 0px;">
             <div style="height: 50%;">
-                <div style="color: white; display: flex; justify-content: center; align-items: flex-end;"><img style="height: 30px; margin-bottom: 11px; margin-right: 3px;" src="apple.png" alt="">
-                    <p style="margin-top: 40px; margin-bottom: 5px; text-align: center; font-size: 30px; font-weight: 600;">WATCH</p>
+                <div style="color: white; display: flex; justify-content: center; align-items: flex-end;"><img
+                        style="height: 30px; margin-bottom: 11px; margin-right: 3px;" src="apple.png" alt="">
+                    <p
+                        style="margin-top: 40px; margin-bottom: 5px; text-align: center; font-size: 30px; font-weight: 600;">
+                        WATCH</p>
                 </div>
-                <p style="color: rgb(185, 4, 4); margin-bottom: 10px;margin-top: -5px; text-align: center; font-size: 12px;">SERIES 8</p>
+                <p
+                    style="color: rgb(185, 4, 4); margin-bottom: 10px;margin-top: -5px; text-align: center; font-size: 12px;">
+                    SERIES 8</p>
                 <p
                     style="font-size: 18px; text-align: center;color: white; width: 100%; margin-top: 0px; margin-bottom: 0px;">
                     A healthy leap ahead</p>
@@ -473,20 +551,24 @@
                 </div>
             </div>
             <div style="display: flex; align-items: flex-end; height: 50%;">
-                    <img style="width: 100%;" src="watch.png" alt="">
+                <img style="width: 100%;" src="watch.png" alt="">
             </div>
         </a>
 
         <a href="" class="mackbookpro" style="margin-top: 0px;">
             <div style="height: 50%;">
                 <div style="color: white; display: flex; justify-content: center; align-items: flex-end;">
-                    <p style="margin-top: 40px; margin-bottom: 5px; text-align: center; font-size: 30px; font-weight: 600;">iPhone 14 Pro</p>
+                    <p
+                        style="margin-top: 40px; margin-bottom: 5px; text-align: center; font-size: 30px; font-weight: 600;">
+                        iPhone 14 Pro</p>
                 </div>
                 <p
                     style="font-size: 18px; text-align: center;color: white; width: 100%; margin-top: 0px; margin-bottom: 0px;">
                     Pro. Beyond.</p>
 
-                <div class="5gbtn" style="border:solid #6e6e73; color: #6e6e73;padding: 3px 1px;display: flex; justify-content: center;border-radius: 20px; margin: 8px 35px; font-size: 12px;">With superfast 5G<sup>*</sup></div>
+                <div class="5gbtn"
+                    style="border:solid #6e6e73; color: #6e6e73;padding: 3px 1px;display: flex; justify-content: center;border-radius: 20px; margin: 8px 35px; font-size: 12px;">
+                    With superfast 5G<sup>*</sup></div>
 
                 <div style="display: flex; justify-content: center;gap: 25px;margin-top: 20px; ">
                     <div style="display: flex; align-items: center;">
@@ -502,9 +584,253 @@
                 </div>
             </div>
             <div style="display: flex; align-items: flex-end; height: 50%;">
-                    <img style="width: 100%;" src="iphone 14pro.png" alt="">
+                <img style="width: 100%;" src="iphone 14pro.png" alt="">
             </div>
         </a>
+
+        <a href="" class="mackbookpro" style="margin-top: 0px; background-color: #fbfbfd;">
+            <div style="height: 50%;">
+                <div style="color: black; display: flex; justify-content: center; align-items: flex-end;">
+                    <p
+                        style="margin-top: 40px; margin-bottom: 5px; text-align: center; font-size: 30px; font-weight: 600;">
+                        iPhone 14</p>
+                </div>
+                <p
+                    style="font-size: 18px; text-align: center;color: black; width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                    Big and bigger.</p>
+
+                <div class="5gbtn"
+                    style="border:solid #6e6e73; color: #6e6e73;padding: 3px 1px;display: flex; justify-content: center;border-radius: 20px; margin: 8px; font-size: 12px;">
+                    With superfast 5G<sup>*</sup></div>
+
+                <div style="display: flex; justify-content: center;gap: 25px;margin-top: 20px; ">
+                    <div style="display: flex; align-items: center;">
+                        <div class="gridmacbottom">Learn more</div>
+                        <div class="gridarrow"
+                            style="display: flex; align-items: center; margin-top: 1px; margin-left: 2px;">></div>
+                    </div>
+                    <div style="display: flex;align-items: center;">
+                        <div class="gridmacbottom">Buy</div>
+                        <div class="gridarrow"
+                            style="display: flex; align-items: center; margin-top: 1px; margin-left: 2px;">></div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: flex-end; height: 50%;">
+                <img style="width: 100%;" src="iphone  in hand.png" alt="">
+            </div>
+        </a>
+
+        <a href="" class="mackbookpro" style="margin-top: 0px;">
+            <div style="height: 50%;">
+                <div style="color: white; display: flex; justify-content: center; align-items: flex-end;">
+                    <p
+                        style="margin-top: 40px; margin-bottom: 5px; text-align: center; font-size: 30px; font-weight: 600;">
+                        iPad Pro</p>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <p
+                        style="font-size: 18px; text-align: center;color: white; width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                        Supercharged by</p><img src="m2chip.png" alt="" style="height: 30px; margin-left: 8px;">
+                </div>
+
+
+                <div class="5gbtn"
+                    style="border:solid #6e6e73; color: #6e6e73;padding: 3px 1px;display: flex; justify-content: center;border-radius: 20px; margin: 8px 15px; font-size: 12px;">
+                    With superfast 5G<sup>*</sup></div>
+
+                <div style="display: flex; justify-content: center;gap: 25px;margin-top: 20px; ">
+                    <div style="display: flex; align-items: center;">
+                        <div class="gridmacbottom">Learn more</div>
+                        <div class="gridarrow"
+                            style="display: flex; align-items: center; margin-top: 1px; margin-left: 2px;">></div>
+                    </div>
+                    <div style="display: flex;align-items: center;">
+                        <div class="gridmacbottom">Buy</div>
+                        <div class="gridarrow"
+                            style="display: flex; align-items: center; margin-top: 1px; margin-left: 2px;">></div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: flex-end; height: 50%;">
+                <img style="width: 100%;" src="ipad pro.png" alt="">
+            </div>
+        </a>
+
+        <a href="" class="mackbookpro" style="margin-top: 0px; background-color: #fbfbfd;">
+            <div style="height: 50%;">
+                <div style="color: black; display: flex; justify-content: center; align-items: flex-end;">
+                    <p
+                        style="margin-top: 40px; margin-bottom: 5px; text-align: center; font-size: 30px; font-weight: 600;">
+                        iPad</p>
+                </div>
+                <p
+                    style="font-size: 18px; text-align: center;color: black; width: 100%; margin-top: 0px; margin-bottom: 0px;">
+                    Loveable. Drawable. Magical.</p>
+
+                <div style="display: flex; justify-content: center;gap: 25px;margin-top: 20px; ">
+                    <div style="display: flex; align-items: center;">
+                        <div class="gridmacbottom">Learn more</div>
+                        <div class="gridarrow"
+                            style="display: flex; align-items: center; margin-top: 1px; margin-left: 2px;">></div>
+                    </div>
+                    <div style="display: flex;align-items: center;">
+                        <div class="gridmacbottom">Buy</div>
+                        <div class="gridarrow"
+                            style="display: flex; align-items: center; margin-top: 1px; margin-left: 2px;">></div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: flex-end; height: 50%;">
+                <img style="width: 100%;" src="ipad (1).png" alt="">
+            </div>
+        </a>
+    </div>
+
+    <div class="images" style="background-color: white; padding-top: 2px;">
+        <div class="slider-frame">
+            <div class="slide-images">
+                    <div class="img-container">
+                        <img src="slide1.jpg" style="width: 1200px;">
+                    </div>
+                    <div class="img-container">
+                        <img src="slide2.jpg" style="width: 1200px;">
+                    </div>
+                    <div class="img-container">
+                        <img src="slide3.jpg" style="width: 1200px;">
+                    </div>
+                    <div class="img-container">
+                        <img src="slide4.jpg" style="width: 1200px;">
+                    </div>
+                    <div class="img-container">
+                        <img src="slide5.jpg" style="width: 1200px;">
+                    </div>
+                    <div class="img-container">
+                        <img src="slide6.jpg" style="width: 1200px;">
+                    </div>
+                    <div class="img-container">
+                        <img src="slide7.jpg" style="width: 1200px;">
+                    </div>
+                    <div class="img-container">
+                        <img src="slide8.jpg" style="width: 1200px;">
+                    </div>
+                    <div class="img-container">
+                        <img src="slide9.jpg" style="width: 1200px;">
+                    </div>
+                    <div class="img-container">
+                        <img src="slide10.jpg" style="width: 1200px;">
+                    </div>
+                    <div class="img-container">
+                        <img src="slide11.jpg" style="width: 1200px;">
+                    </div>
+                    <div class="img-container">
+                        <img src="slide12.jpg" style="width: 1200px;">
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="footer" style="display: flex; padding: 1% 20%;flex-direction: column; background-color: #F5F5F7;">
+        <div class="div1" style="width: 100%; font-size: 12px ;color: #6E6E73;">*Data plan is required. 5G is available
+            in selected markets and through selected carriers. Speeds vary based on site conditions and carrier. For
+            details on 5G support, contact your carrier and see apple.com/in/iphone/cellular. <br><br>
+            <sup>‡</sup>Instant savings, otherwise referred to as Instant Cashback on the Apple Store Online, is
+            available with the purchase of an eligible product for qualifying HDFC Bank Credit Cards & HDFC Bank Credit
+            Card EMI only. Minimum transaction value of ₹10001 applies. Click here to see instant savings amounts and
+            eligible devices. Instant savings is available for up to two orders per rolling 90-day period with an
+            eligible card. Card eligibility is subject to terms and conditions between you and your card-issuing bank.
+            Total transaction value is calculated after any trade-in credit or eligible discount applied. Any subsequent
+            order adjustment(s) or cancellation(s) may result in instant savings being recalculated, and any refund may
+            be adjusted to account for instant savings clawback; this may result in no refund being made to you. Offer
+            may be revised or withdrawn at any time without any prior notice. Terms and conditions apply. Offer cannot
+            be combined with Apple Store for Education or Corporate Employee Purchase Plan pricing. Multiple separate
+            orders cannot be combined for instant savings. <br><br>
+            Get extra trade-in credit, otherwise referred to as additional exchange savings or exchange bonus, when you
+            trade in an eligible iPhone and purchase a new Apple device until 5 March 2023. Extra trade-in credit of
+            ₹5000 is available while trading in iPhone 12, iPhone 11, iPhone XR or iPhone X and ₹4500 on iPhone 7.
+            <br><br>
+            <sup>‡‡</sup>No Cost EMI is available with the purchase of an eligible product made using qualifying credit
+            or debit cards on 3- or 6-month tenures from most leading banks. Minimum order spend applies as per your
+            credit or debit card's issuing bank threshold. Offer cannot be combined with Apple Store for Education or
+            Corporate Employee Purchase Plan pricing. Credit or debit card eligibility is subject to terms and
+            conditions between you and your credit or debit card-issuing bank. Offer may be revised or withdrawn at any
+            time without any prior notice. Terms & conditions apply. <br><br>
+            Representative example: Based off a 6-month tenure. iPhone 14 at ₹79900 total cost includes 14% p.a. and No
+            Cost EMI savings of ₹3164, paid over 6 months as six monthly payments of ₹13317.
+        </div>
+
+        <div class="div2"
+            style="display: grid; grid-template-columns: auto auto auto auto auto; border: solid grey; border-width: 2px 0px 0px 0px; margin-top: 15px; padding-top: 15px; color: #6E6E73; font-size: 12px;">
+            <div style="display: flex; flex-direction: column;" class="footergridwala">
+                <div style="color: black; text-decoration: none;"> Shop and Learn</div>
+                <div> Store</div>
+                <div> Mac</div>
+                <div> iPad</div>
+                <div> iPhone</div>
+                <div> Watch</div>
+                <div> AirPods</div>
+                <div> TV & Home</div>
+                <div> AirTag</div>
+                <div> Accessories</div>
+                <div> Gift Cards</div>
+            </div>
+            <div style="display: flex; flex-direction: column;" class="footergridwala">
+                <div style="color: black; text-decoration: none;"> Shop and Learn</div>
+                <div> Store</div>
+                <div> Mac</div>
+                <div> iPad</div>
+                <div> iPhone</div>
+                <div> Watch</div>
+                <div> AirPods</div>
+                <div> TV & Home</div>
+                <div> AirTag</div>
+                <div> Accessories</div>
+                <div> Gift Cards</div>
+            </div>
+            <div style="display: flex; flex-direction: column;" class="footergridwala">
+                <div style="color: black; text-decoration: none;"> Shop and Learn</div>
+                <div> Store</div>
+                <div> Mac</div>
+                <div> iPad</div>
+                <div> iPhone</div>
+                <div> Watch</div>
+                <div> AirPods</div>
+                <div> TV & Home</div>
+                <div> AirTag</div>
+                <div> Accessories</div>
+                <div> Gift Cards</div>
+            </div>
+
+            <div style="display: flex; flex-direction: column;" class="footergridwala">
+                <div style="color: black; text-decoration: none;"> Shop and Learn</div>
+                <div> Store</div>
+                <div> Mac</div>
+                <div> iPad</div>
+                <div> iPhone</div>
+                <div> Watch</div>
+                <div> AirPods</div>
+                <div> TV & Home</div>
+                <div> AirTag</div>
+                <div> Accessories</div>
+                <div> Gift Cards</div>
+            </div>
+
+            <div style="display: flex; flex-direction: column;" class="footergridwala">
+                <div style="color: black; text-decoration: none;"> Shop and Learn</div>
+                <div> Store</div>
+                <div> Mac</div>
+                <div> iPad</div>
+                <div> iPhone</div>
+                <div> Watch</div>
+                <div> AirPods</div>
+                <div> TV & Home</div>
+                <div> AirTag</div>
+                <div> Accessories</div>
+                <div> Gift Cards</div>
+            </div>
+
+        </div>
     </div>
 
 </body>
