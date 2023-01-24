@@ -1,0 +1,24 @@
+.roundedbutton:hover .gradientcontainer{
+    display: none;
+
+}
+.roundedbutton:hover .playbtn{
+    width: 18px;
+    height: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-color: black; */
+    background-image: url(playbutton.svg);
+    border-radius: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.roundedbutton:hover .playimage{
+    display: none;
+}
+.roundedbutton:hover .actualbutton{
+    background-color: white;
+    color: black;
+}
+
