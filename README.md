@@ -1,1 +1,2 @@
 # w3school
+One of the feature of margin is that it does not sum up the margin of two adjacent elements like if two adjacent elements have the margin of 60px each then the space between them is not 120px but it is 60 px only. The margin does not adds up instead it takes the margin having the maximum value
