@@ -2,87 +2,231 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Image Gallary</title>
-
+    <title>GSDC-Assignment</title>
     <style>
-        *{
-            font-family: 'Tangerine', serif;
-            box-sizing: border-box;
-        }
         body{
-            margin: 0px;
-            padding: 0px;
+            background-image: url("Assets/background.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+            height: 90vh;
+            width: 100vw;
+            overflow: hidden;
         }
-        .container{
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .container > div{
-            width: 25%;
-            display: flex;
-            padding: 4px;
-            flex-direction: column;
-            justify-content : space-between;
-            gap: 8px;
-        }
-        img{
+        .moving{
             width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            /* display: flex; */
+            /* gap: 200px; */
+            z-index: -1;
+            margin-left: 5%;
+            
         }
-        @media screen and (max-width: 800px) {
-            .container > div{
-            width: 50%;
-        }        
-        }
-        @media screen and (max-width: 600px) {
-            .container > div{
-            width: 100%;
-        }        
-        }
+        .sq1{
+            position: absolute;
+            animation-name: move1;
+            animation-duration: 7s;
+            animation-iteration-count:infinite;
+            animation-timing-function: linear;
+            animation-delay: 2s;
+            visibility: hidden;
+            height: 30px;
+            width: 30px;
+            scale: 150%;
 
+        }
+        @keyframes move1 {
+            0%   {left:0vw; top:100vh;opacity: 0;visibility: visible;}
+            50%   {left:0vw; top:50vh;opacity: 1;visibility: visible;}
+            100% {left:0vw; top:0vh; opacity: 0;visibility: visible;}
+            
+        }
+        .c1{
+            position: absolute;
+            animation-name: move2;
+            animation-timing-function: linear;
+            animation-duration: 7s;
+            animation-iteration-count:infinite;
+            scale: 200%;
+        }
+        @keyframes move2 {
+            0%   {left:14vw; top:100vh;opacity: 0;}
+            50%   {left:14vw; top:50vh;opacity: 1;}
+            100% {left:14vw; top:0vh; opacity: 0;}
+            
+        }
+        .tr1{
+            position: absolute;
+            animation-name: move3;
+            animation-duration: 7s;
+            animation-iteration-count:infinite;
+            animation-timing-function: linear;
+            animation-delay: 3s;
+            visibility: hidden;
+            scale: 150%;
+        }
+        @keyframes move3 {
+            0%   {left:28vw; top:100vh;opacity: 0;visibility: visible;}
+            50%   {left:28vw; top:50vh;opacity: 1;visibility: visible;}
+            100% {left:28vw; top:0vh; opacity: 0;visibility: visible;}
+            
+        }
+        .cr1{
+            position: absolute;
+            animation-name: move4;
+            animation-duration: 7s;
+            animation-iteration-count:infinite;
+            animation-timing-function: linear;
+            animation-delay: 1s;
+            visibility: hidden;
+            scale: 150%;
+
+        }
+        @keyframes move4 {
+            0%   {left:42vw; top:100vh;opacity: 0;visibility: visible;}
+            50%   {left:42vw; top:50vh;opacity: 1;visibility: visible;}
+            100% {left:42vw; top:0vh; opacity: 0;visibility: visible;}
+            
+        }
+        .c2{
+            position: absolute;
+            animation-name: move5;
+            animation-timing-function: linear;
+            animation-duration: 7s;
+            animation-iteration-count:infinite;
+            scale: 150%;
+        }
+        @keyframes move5 {
+            0%   {left:56vw; top:100vh;opacity: 0;}
+            50%   {left:56vw; top:50vh;opacity: 1;}
+            100% {left:56vw; top:0vh; opacity: 0;}
+            
+        }
+        .sq2{
+            position: absolute;
+            animation-name: move6;
+            animation-timing-function: linear;
+            animation-duration: 7s;
+            animation-iteration-count:infinite;
+            scale: 150%;
+        }
+        @keyframes move6 {
+            0%   {left:70vw; top:100vh;opacity: 0;}
+            50%   {left:70vw; top:50vh;opacity: 1;}
+            100% {left:70vw; top:0vh; opacity: 0;}
+            
+        }
+        .tr2{
+            position: absolute;
+            animation-name: move7;
+            animation-duration: 7s;
+            animation-timing-function: linear;
+            animation-iteration-count:infinite;
+            animation-delay: 1s;
+            visibility: hidden;
+            scale: 150%;
+        }
+        @keyframes move7 {
+            0%   {left:84vw; top:100vh;opacity: 0;visibility: visible;}
+            50%   {left:84vw; top:50vh;opacity: 1;visibility: visible;}
+            100% {left:84vw; top:0vh; opacity: 0;visibility: visible;}
+            
+        }
+        .topcontainer{
+            display: flex;
+            height: 100%;
+            margin: 40px;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+        .leftone{
+            width: 45%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .rightone{
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .social{
+            display: flex;
+            justify-content: flex-end;
+            gap: 30px;
+            height: 30%;
+            margin-bottom: 100px;
+            margin-right: 120px;
+        }
+        .man{
+            height: 70%;
+            width: 100%;
+            margin-bottom: 180px;
+        }
+        .man > img{
+            width: inherit;
+        }
+        .logos{
+            height: 40px;
+        }
+        h1{
+            color: white;
+            font-size: 60px;
+            margin-top: 190px;
+            margin-bottom: 5px;
+        }
+        .button{
+            color: white;
+            border: solid white 2px;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top:35px ;
+            width: 100px;
+            font-size: 20px;
+        }
+        
+        
     </style>
 </head>
 <body>
-    <p style="text-align: center;font-size: 48px; margin-bottom: 0px;">Responsive Image Gallary</p>
-    <p style="text-align: center; font-size: 10px; font-family: Arial, Helvetica, sans-serif; margin-bottom: 80px;">Resize the browser window to see the responsive effect</p>
-    <div class="container">
-        <div class="row1">
-            <img src="https://www.w3schools.com/w3images/wedding.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/rocks.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/falls2.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/paris.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/nature.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/mist.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/paris.jpg" alt="">
+    <div class="moving">
+        <div class="sq1"><img src="./Assets/square.png" alt=""></div>
+        <div class="tr1"><img src="./Assets/triangle.png" alt=""></div>
+        <div class="cr1"><img src="./Assets/cross.png" alt=""></div>
+        <div class="c1"><img src="./Assets/circle.png" alt=""></div>
+        <div class="c2"><img src="./Assets/circle.png" alt=""></div>
+        <div class="sq2"><img src="./Assets/square.png" alt=""></div>
+        <div class="tr2"><img src="./Assets/triangle.png" alt=""></div>
+    </div>
+    <div class="topcontainer">
+        <div class="leftone">
+            <div class="ball" style="display: flex; width: 100%; margin-top: 100px; margin-left: 150px;"><img src="./Assets/logo.png" alt="" style="width: 110px;"></div>
+            <h1>
+                Welcome to the <br> Gaming World
+            </h1>
+            <div style="color: rgb(185, 183, 183); width: 64%; font-size: 30px;">Dive into the Awesomeness!</div>
+            <div class="btn" style="width: 64%;"><div class="button">Explore</div></div>
         </div>
-        <div class="row2">
-            <img src="https://www.w3schools.com/w3images/underwater.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/ocean.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/wedding.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/mountainskies.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/rocks.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/underwater.jpg" alt="">
+        <div class="rightone">
+            <div class="social">
+                <img src="./Assets/toppng.com-facebook-logo-white-white-facebook-f-logo-760x1440.png" alt="" class="logos">
+                <img src="./Assets/insta.png" alt="" class="logos">
+                <img src="./Assets/linkedin.png" alt="" class="logos" style="height: 37px;">
+            </div>
+            <div class="man"><img src="./Assets/contimg.png" alt=""></div>
         </div>
-        <div class="row3">
-            <img src="https://www.w3schools.com/w3images/wedding.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/rocks.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/falls2.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/paris.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/nature.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/mist.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/paris.jpg" alt="">
-        </div>
-        <div class="row4">
-            <img src="https://www.w3schools.com/w3images/underwater.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/ocean.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/wedding.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/mountainskies.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/rocks.jpg" alt="">
-            <img src="https://www.w3schools.com/w3images/underwater.jpg" alt="">
-        </div>
-        
     </div>
     
 </body>
