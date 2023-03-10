@@ -1,0 +1,129 @@
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: normal;
+  margin: 0;
+
+    background: #fafafa;
+  
+    color: gray;
+
+    background-image: url(https://preview.colorlib.com/theme/bootstrap/contact-form-10/images/bg_1.jpg.webp);
+    background-repeat: no-repeat;
+    background-size: 100% 1280px;
+   }
+
+   
+   
+   
+   #contactForm .error {
+  color: red;
+
+  font-size: 12px; }
+
+#contactForm .form-control {
+  font-size: 20px;
+ }
+
+  #message {
+  resize: vertical; }
+
+#form-message-warning, #form-message-success {
+  display: none; }
+
+
+.submitting {
+  float: left;
+  width: 100%;
+  padding: 10px 0;
+  display: none;
+  font-size: 16px;
+  font-weight: 500; }
+  
+  .maina {
+    padding: 7em 0; }
+
+
+  footer,section {
+        display: block; }
+
+ .head {  font-size: 60px;
+         color:white;       
+ }
+
+    .contact1 {
+      background: #fff;
+    border-radius: 10px; }
+
+    #aaa{
+        visibility: hidden;
+    }
+    #p{
+      height: 800px;
+      margin-left: 150px;
+    }
+    #pa{
+      font-size: 40px;
+      color: rgb(249, 9, 9);
+      display: flex;
+      justify-content: center;
+    }
+    .form-control{height: 50px;
+      
+    }
+    
+    .info-wrap h3 {
+        color: #fff; }
+      .info-wrap .dbox {
+        width: 100%;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 25px; }
+        .info-wrap .dbox:last-child {
+          margin-bottom: 0; }
+        .info-wrap .dbox p {
+          margin-bottom: 0; }
+  
+          .info-wrap .dbox p span {
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 20px;
+            display: block;
+            text-transform: uppercase; }
+  
+          .info-wrap .dbox p a {
+            color: rgba(255, 255, 255, 0.7); }
+        .info-wrap .dbox .icon {
+          margin-top: 10px; }
+          
+          .info-wrap .dbox .icon span {
+            font-size: 24px;
+            color: #fff; }
+        .info-wrap .dbox .text {
+          width: 100%; }         
+    
+    /* footer */
+    
+    .main-page-footer {
+        grid-column: 1 / -1;
+        grid-row: 2 / -1;
+        background-color: #f5f4f4;
+        padding: 1.5rem;
+        border-top: 0.1rem solid #ddd;
+      }
+      
+      .main-page-footer ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+      }
+      
+      .main-page-footer a {
+        font-size: 1.6rem;
+        margin: 0 2rem;
+        text-decoration: none;
+        color: #444;
+        font-weight: 300;
+      }
+
+    

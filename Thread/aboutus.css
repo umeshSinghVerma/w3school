@@ -1,0 +1,237 @@
+ .team-content {
+    padding: 0px 15px 15px 15px;
+}
+.border-team {
+    border-bottom:1px solid #e2e2e2;
+    margin-bottom:10px;
+}
+.team-img > img {
+  width: auto;;
+  height: 350.733px;
+
+}
+.team-img:hover {
+    background:#efeeee;
+    
+}
+/* Social Icons */
+
+.social-icons{
+    
+    margin: 0;
+    padding: 0;
+    font-size : 10px;
+}
+.social {
+    margin:7px 7px 7px 0px;
+    color:#232323;
+}
+
+
+#social-fb:hover {
+     color: #3B5998;
+     transition:all .25s;
+ }
+ #social-tw:hover {
+     color: #4099FF;
+     transition:all .25s;
+ }
+ #social-in:hover {
+     color: #c737c5;
+     transition:all .25s;
+ }
+ #social-em:hover {
+     color: #d55718;
+     transition:all .25s;
+ }
+
+
+/* Site Heading */
+.site-heading h3{
+    font-size : 40px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.border {
+    background: #e1e1e1;
+    height: 1px;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 45px;
+}
+
+.paddingTB60 {
+    padding-top:60px;
+    padding-bottom:60px;
+}
+
+   .image-aboutus-banner {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://images.pexels.com/photos/673649/pexels-photo-673649.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    padding-top: 110px;
+    padding-bottom:110px;
+ }
+.lg-text {
+    font-size:52px;
+    font-weight: 600;
+    text-transform: none;
+    color:#fff;
+}
+/* font CSS */
+body {
+    font-family: 'Roboto';
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    font-style: normal;
+    color: #494949;
+    font-size: 16px;
+}
+
+a:hover {
+    color: #465cff;
+}
+
+h1 {
+    font-size: 35px;
+    line-height: 40px;
+    letter-spacing: 0px;
+    font-weight: 600;
+    color: #000;
+}
+h2 {
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 0px;
+    font-weight: 600;
+    color: #000;
+}
+
+h3 {
+    line-height: 26px;
+    font-size: 20px;
+    letter-spacing: 0px;
+    font-weight: 600;
+    font-style: normal;
+    color: #000;
+}
+ h4 { font-size: 19px; 
+     letter-spacing: 0px; 
+     font-weight: 600;
+     font-style: normal;
+     color: #000;
+}
+
+p {
+    font-weight: 400;
+    font-style: normal;
+    color: #494949;
+}
+
+
+a {
+    color: #494949;
+}
+
+.capital {
+    text-transform:uppercase;
+}
+
+
+i {
+    font-style: normal;
+    font-size: 42px;
+    text-align: center;
+    line-height: 64px;
+}
+
+/* Navigation */
+.navbar-default {
+  background-color: #011034;
+  border-color: #011034;
+  padding: 10px 0px 10px 0;
+  letter-spacing:1px;
+  font-weight:800;
+  text-transform: uppercase;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    -ms-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    -o-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+}
+.navbar-default {
+  background-color: #011034;
+  border-color: #011034;
+}
+.navbar-default .navbar-brand {
+  color: #ffffff;
+  font-size: x-large;
+}
+.navbar-default .navbar-brand:hover{
+  font-size:52px;
+  color: #ffffff;
+
+}
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #b40028;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #b40028;
+  background-color: #011034;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #b40028;
+  background-color: #011034;
+}
+
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+  color: #b40028;
+}
+
+/* footer */
+
+.main-page-footer {
+  grid-column: 1 / -1;
+  grid-row: 2 / -1;
+  background-color: #f5f4f4;
+  padding: 1.5rem;
+  margin-bottom: -60px;
+  border-top: 0.1rem solid #ddd;
+}
+
+.main-page-footer ul {
+  display: flex;
+  margin-top: 3rem;
+  justify-content: center;
+  list-style: none;
+}
+
+.main-page-footer a {
+  font-size: 1.6rem;
+  margin: 0 2rem;
+  text-decoration: none;
+  color: #444;
+  font-weight: 300;
+}
+.logo{
+  height: 50px;
+  width: 50px;
+}

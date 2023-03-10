@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Thread</title>
+    <link rel="icon" href="images/logo.jpg"></link>
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            outline: none;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            background-color: #f0f8fd;
+        }
+        .login-page 
+        {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: minmax(5rem, 1fr) 2fr minmax(5rem, 1fr);
+            grid-template-rows: repeat(2, min-content) 1fr;
+            grid-row-gap: 1.5rem;
+        }
+
+        .login-page-nav {
+            grid-column: 1 / -1;
+            grid-row: 1 / 2;
+            background-color: #fff;
+            padding: 2.5rem 0;
+            box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .login-page-nav ul {
+            width: 100rem;
+            margin: auto;
+            display: flex;
+            align-items: flex-end;
+            list-style: none;
+        }
+
+        .login-page-nav li {
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        .login-page-nav li:last-child {
+            margin-left: auto;      
+        }
+
+        .login-page-nav li::after {
+            content: "";
+            width: 100%;
+            height: 0.4rem;
+            background-color: #00a2e9;
+            position: absolute;
+            bottom: -2.5rem;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .login-page-nav li:hover::after {
+            opacity: 1;
+        }
+
+        .login-page-nav a {
+            font-size: 1.6rem;
+            text-decoration: none;
+            color: #555;
+            transition: color 0.3s;
+        }
+        .login-page-nav li:hover a {
+            color: #00a2e9;
+        }
+
+        .login-page-nav i {
+            color: #00a2e9;
+            font-size: 2rem;
+        }
+
+        .login {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            background-color: #fff;
+            width: 100rem;
+            display: grid;
+            grid-template-columns: 10rem 8fr;
+            grid-template-rows: 2fr 1fr;
+            box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+        }
+
+        .login-content {
+            grid-column: 2 / -1;
+            grid-row: 1 / 2;
+            padding: 5rem 0 1rem 0;
+        }
+
+        .login-content h2 {
+            font-size: 2.4rem;
+            margin-bottom: 3rem;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-form input:not(.login-form-checkbox) {
+            width: 30rem;
+            height: 3.5rem;
+            margin-bottom: 1rem;
+            border: 0.1rem solid #ddd;
+            border-radius: 0.5rem;
+            padding-left: 1rem;
+            font-size: 1.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .login-form input:focus {
+            background-color: #d9ebf7;  
+        }
+
+        .login-form div {
+            margin-top: 2rem;
+        }
+
+        .login-form button {
+            padding: 1rem 1.5rem;
+            background-color: #00a2e9;
+            color: #fff;
+            border-radius: 4rem;
+            border: 0.1em solid #00a2e9;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+
+        .login-form label {
+            font-size: 1.6rem;
+            font-weight: 300;
+            margin-right: 1rem;
+        }
+
+        .login-form a {
+            text-decoration: none;
+            font-size: 1.6rem;
+            color: #00a2e9;
+        }
+
+        .login-footer {
+            grid-column: 1 / -1;
+            grid-row: 2 / -1;
+            background-color: #edf3f7;
+            padding-left: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .login-footer p {
+            font-size: 1.6rem;
+            font-weight: 300;
+            margin: 0.5rem 0;
+        }
+
+        .login-footer a {
+            text-decoration: none;
+            color: #00a2e9;
+        }
+        .login-modal {
+        position: fixed;
+        top: 11.5rem;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        width: 70rem;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
+        border-radius: 0 0 1rem 1rem;
+        display: none;
+        }
+
+        .login-modal i {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        font-size: 1.3rem;
+        color: #868383;
+        cursor: pointer;
+        }
+        .login-modal p {
+        margin: 2rem 1rem 0 1rem;
+        font-size: 1.6rem;
+        color: #868383;
+        }
+        label{
+            color: red;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+        
+    </style>
+</head>
+<body>
+    <section class="login-page">
+        <nav class="login-page-nav">
+            <ul>
+                <li><a href="#">Language: English</a></li>
+            </ul>
+        </nav>
+        I
+        <div class="login">
+            <div class="login-content">
+                <h2>Sign Up To Thread</h2>
+                <form class="login-form">
+                    <input type="text" class="login-name" placeholder="Enter Name">
+                    <input type="text" class="login-user-info" placeholder="Create Username" />
+                    <input type="password" class="login-password" placeholder="Create Password" />
+                    <label id="msg"></label>
+                    <div>
+                        <button type="button" class="login-form-btn">
+                            Sign Up
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <footer class="login-footer">
+                <p>Already using Thread? <a href="login.html">Sign In</a></p>
+            </footer>
+        </div>
+        <!-- Login Modal -->
+       <div class="login-modal">
+          <i class="fas fa-times"></i>
+          <p>
+             Account Created Successfully!!
+          </p>
+       </div>
+       <!-- End Of Login Modal -->
+      </section>
+      <script>
+        const modalX = document.querySelector(".login-modal i");
+        const loginModal = document.querySelector(".login-modal");
+        modalX.addEventListener("click", () => {
+            loginModal.style.display = "none";
+        });
+        const loginFormBtn = document.querySelector(".login-form-btn");
+        const loginNameInfo = document.querySelector(".login-name");
+        const loginUserInfo = document.querySelector(".login-user-info");
+        const loginPassword = document.querySelector(".login-password");
+        loginPassword.addEventListener("keypress",(event)=>{if(event.key=='Enter'){
+          signup();
+        }})
+        const msg = document.querySelector("#msg");
+        loginFormBtn.addEventListener("click",signup);
+        function signup(){
+        if (loginUserInfo.value == "" || loginPassword.value == "" || loginNameInfo.value=='') 
+        {
+           msg.innerText="Please fill all the fields.";
+           setTimeout(function(){
+            msg.innerHTML ="" },2000);
+           return;
+        }
+        else if(loginUserInfo.value===loginNameInfo.value) 
+        {
+            msg.innerText="Name & Username cannot be same.";
+            setTimeout(function(){
+            msg.innerHTML ="" },2000);           
+            return;
+        }
+        else if(loginPassword.value.length<6 || loginPassword.value.length>12) 
+        {
+            msg.innerText="Password length must be between 6 and 12 characters";
+            setTimeout(function(){
+            msg.innerHTML ="" },2000);
+            return;
+        }
+        else
+        {
+            sav();
+            let main=[];
+            main.push["other"];
+            localStorage.setItem("mainuser",JSON.stringify(main));
+            loginModal.style.display = "block";
+            setTimeout(function()
+            {window.location.href="index.html"; },2000);
+        }
+        }
+        function sav(){
+            let accounts = localStorage.getItem("accounts"); 
+            if(accounts==null) 
+            {
+                accountobj = [];
+            }else
+            {
+                accountobj = JSON.parse(accounts);  
+            }
+ 
+            let newobj = 
+            {
+                Username: loginUserInfo.value,
+                Password: loginPassword.value,
+            };
+            // console.log(newobj);
+            accountobj.push(newobj);
+            localStorage.setItem("accounts",JSON.stringify(accountobj));
+            loginNameInfo.value = "";
+            loginUserInfo.value = "";
+            loginPassword.value = "";
+        }
+        
+
+      </script>
+</body>
+</html>

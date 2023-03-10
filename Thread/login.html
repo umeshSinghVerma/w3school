@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Thread</title>
+    <link rel="icon" href="images/logo.jpg"></link>
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+     * {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #f0f8fd;
+}
+
+/* /main-page/ */
+.main-page {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr min-content;
+}
+.main-btn{
+  /* width:450px; */
+  height:50px;
+}
+#msg{
+    color: red;
+    font-size: 15px;
+    letter-spacing: 1.4px;
+}
+
+/* left */
+.left {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  background-color: #00a2e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-content div {
+  display: flex;
+  align-items: center;
+  margin: 4rem;
+  color: #fff;
+}
+
+.left-content i {
+  font-size: 3rem;
+  margin-right: 2rem;
+}
+
+.left-content-heading {
+  font-size: 2rem;
+}
+
+/* right */
+.right {
+  grid-column: 2 / -1;
+  grid-row: 1 / 2;
+  position: relative;
+}
+
+.right-content-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.right-content-form div {
+  position: relative;
+}
+
+.right-content-form input {
+  width: 25rem;
+  height: 4.5rem;
+  margin-right: 1rem;
+  font-size: 1.6rem;
+  padding: 0 1rem;
+  border: 0.1rem solid #ddd;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+
+.right-content-form input:focus {
+  background-color: #d9ebf7;
+  outline: none;
+}
+
+.right-content-form label {
+  position: absolute;
+  top: 5.5rem;
+  left: 0;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: #a7a6a6;
+}
+
+.btn-top {
+  width: 8rem;
+  background-color: #fff;
+  color: #00a2e9;
+  border: 0.1rem solid#00a2e9;
+  border-radius: 3rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: backgroun-color 0.3s;
+}
+
+.btn-top:hover {
+  background-color: #d9ebf7;
+}
+
+.logo{
+  height: 120px;
+  width: 120px;
+  position: relative;
+  left:150px;
+  top:-50px;
+  /* margin-bottom: 20px; */
+}
+.middle-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.middle-content i {
+  font-size: 4rem;
+  color: #00a2e9;
+  margin-bottom: 2rem;
+}
+
+.middle-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 4rem;
+  line-height: 4rem;
+}
+
+.middle-content h4 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.middle-content button {
+  margin: 0.8rem 0;
+  padding: 0.5rem;
+  border: 0.1rem solid#00a2e9;
+  border-radius: 4rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.sign-up {
+  background-color: #00a2e9;
+  color: #fff;
+}
+
+.sign-up:hover {
+  background-color: #0f5d8d;
+}
+
+.log-in {
+  background-color: #fff;
+}
+
+.log-in:hover {
+  background-color: #d9ebf7;
+}
+
+/* footer */
+
+.main-page-footer {
+  grid-column: 1 / -1;
+  grid-row: 2 / -1;
+  background-color: #f5f4f4;
+  padding: 1.5rem;
+  border-top: 0.1rem solid #ddd;
+}
+
+.main-page-footer ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.main-page-footer a {
+  font-size: 1.6rem;
+  margin: 0 2rem;
+  text-decoration: none;
+  color: #444;
+  font-weight: 300;
+}
+
+    </style>
+</head>
+<body>
+    <section class="main-page">
+       
+        <!-- left -->
+        <div class="left">
+          <div class="left-content">
+             <div>
+               <i class="fas fa-search"></i>
+               <h3 class="left-content-heading">Find Your Interests</h3>
+            </div>
+            <div>
+             <i class="fas fa-user-friends"></i>
+             <h3 class="left-content-heading">Explore what people are talking about</h3>
+          </div>
+          <div>
+             <i class="fas fa-comment"></i>
+             <h3 class="left-content-heading">Join the People</h3>
+          </div>
+          </div>
+        </div>
+        <!-- end of left -->
+        <div class="right">
+            <div class="right-content">
+                <form class="right-content-form">
+                <div>
+                    <input
+                    type="text"
+                    class="user-info"
+                    placeholder="Phone, email, or username"
+                    id="name"
+                    />
+                    <label id="msg"></label>
+                </div>
+                <div>
+                    <input id="pass" type="password" class="password" placeholder="Password" />
+                    <!-- <label>Forgot Password?</label> -->
+                </div>
+                <button type= "button" class="btn-top" onclick="login()">Log In</button>
+                </form>
+
+         
+                <div class="middle-content">
+                    <!-- <i class="fas fa-dove" ></i> -->
+                    <img class="logo" src="images/logo.jpg" alt="Thread logo">
+                    <h1>Explore what's happening in the world</h1>
+                    <h4>Join Thread today</h4>
+                    <button type= "button" class="sign-up main-btn" onclick="re2()">Sign-Up</button>
+                    <button type= "button" class="log-in main-btn" onclick="fo()">Log-In</button>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="main-page-footer">
+         <ul>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="contactus.html">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">&copy; 2023 Thread<a></li>
+         </ul>
+       </footer>
+       
+     </section>
+     <script>
+        let ad="iiitl"
+        let pass="iiitl1234"
+        let nm=document.getElementById("name")
+        let ps=document.getElementById("pass")
+        let msg=document.getElementById("msg")
+        let main=[];
+        let f=0;
+        let g=0;
+        let index=-1;
+        let user=[];
+        ps.addEventListener("keypress",(event)=>{if(event.key=='Enter'){
+          login();
+        }});
+        for(let i=0;i<JSON.parse(localStorage.getItem("accounts")).length;i++){
+          user.push(JSON.parse(localStorage.getItem("accounts"))[i].Username);
+        }
+        function check(){
+          main.push["other"];
+          if(nm.value==ad){
+            main.pop()
+            main.push("admin");
+            localStorage.setItem("mainuser",JSON.stringify(main));
+            f=1;
+          }
+          for(let i=0;i<user.length;i++){
+            if(nm.value==user[i]){
+              main.pop();
+              main.push("other");
+              localStorage.setItem("mainuser",JSON.stringify(main));
+              console.log(main)
+              index=i;
+              f=1;
+              break;
+            } 
+          }
+          if(f==1){
+              if(ps.value==pass){
+                g=1;
+              }
+              if(index!=-1){
+                if(JSON.parse(localStorage.getItem("accounts"))[index].Password==ps.value){
+                  g=1;        
+                };
+              }
+          }
+        }
+        function login(){
+            check();
+            if(nm.value=='' || ps.value==''){
+                msg.innerText="Please fill both the fields."
+                return;
+            }
+            else if(f==0){
+                console.log(f)
+                msg.innerText="Invalid Username"
+                return;
+            }
+            else if(g==0){
+                msg.innerText="Invalid Password"
+                return;
+            }
+            re();
+        }
+        function re(){
+            window.location.href = "index.html";
+        }
+        function re2(){
+            window.location.href = "signup.html";
+        }
+        function fo(){
+            nm.focus();
+        }
+     </script>
+</body>
+</html>

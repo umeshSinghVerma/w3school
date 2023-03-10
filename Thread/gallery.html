@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.jpg"></link>
+    <title>Image Gallary</title>
+<link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .container > div{
+            width: 25%;
+            display: flex;
+            padding: 4px;
+            flex-direction: column;
+            justify-content : space-between;
+            gap: 8px;
+        }
+        img{
+            width: 100%;
+        }
+        @media screen and (max-width: 800px) {
+            .container > div{
+            width: 50%;
+        }        
+        }
+        @media screen and (max-width: 600px) {
+            .container > div{
+            width: 100%;
+        }        
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="feeds-nav dark-mode-1">
+        <div class="icons">
+            <a href="index.html" ><i class="fas fa-home"></i></a>
+            <a href="gallery.html" class="active" ><i class="material-icons"style="font-size:28px; margin-top: 10px;">photo_library</i></a>
+            <a href=""><i class="fas fa-bell"></i></a>
+            <a href=""><i class="fas fa-envelope"></i></a>
+        </div>
+  
+        <div class="search-bar ">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search " class="search-bar-input dark-mode-2 light-text border"> 
+        </div>
+        <div class="user">
+            <div class="user-img-wrapper">
+                <img src="images/user1.jpeg" alt="">
+            </div>
+            <a href="#" class="user-link light-text">IIIT Lucknow</a>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </nav>
+<div class="gallary">
+    <h1 style="text-align: center;font-size: 48px; margin-bottom: 0px;font-family: 'Tangerine', serif;">Responsive Image Gallary</h1>
+    <div class="container">
+        <div class="row1">
+            <img src="images/aa.jpg" alt="">
+            <img src="images/7.jpg" alt="">
+            <img src="images/2.jpg" alt="">
+            <img src="images/13.jpg" alt="">
+            <img src="images/22.jpg" alt="">
+            <img src="https://www.w3schools.com/w3images/underwater.jpg" alt="">
+            <img src="images/19.jpg" alt="">
+        </div>
+        <div class="row2">
+            <img src="images/3.jpg" alt="">
+            <img src="images/23.jpg" alt="">
+            <img src="images/8.jpg" alt="">
+            <img src="images/9.jpg" alt="">
+            <img src="images/10.jpg" alt="">
+            <img src="images/11.jpg" alt="">
+        </div>
+        <div class="row3">
+            <img src="images/12.jpg" alt="">
+            <img src="images/16.jpg" alt="">
+            <img src="images/7.jpeg" alt="">
+            <img src="images/15.jpg" alt="">
+            <img src="images/24.jpg" alt="">
+            <img src="images/17.jpg" alt="">
+            <img src="images/6.jpg" alt="">
+            <img src="images/4.jpg" alt="">
+        </div>
+        <div class="row4">
+            <img src="images/20.jpg" alt="">
+            <img src="images/18.jpg" alt="">
+            <img src="images/14.jpg" alt="">
+            <img src="images/21.jpg" alt="">
+            <img src="images/5.jpg" alt="">
+            <img src="images/1.jpg" alt="">
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
