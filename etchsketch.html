@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .boxes {
+        background-color: yellow;
+        border: solid black 1px;
+    }
+
+    #master {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    body {
+        background-color: rgb(231, 226, 226);
+    }
+
+    #colp {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: none;
+    }
+
+    #colp::-webkit-color-swatch-wrapper {
+        padding: 0;
+    }
+
+    #colp::-webkit-color-swatch {
+        border: none;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+</style>
+
+<body id="bdy">
+    <div>
+        create a box
+        <input type="text" id="rsize" oninput="fn()">
+    </div>
+    <div id="master" style="height: 500px; width: 500px; margin: 5px; background-color: white;"></div>
+    <button onclick="t()">Erase</button>
+    <button onclick="r()">Rainbow</button>
+    <button onclick="c()">Clear</button>
+    <input type="color" id="colp" oninput="re()">
+</body>
+<script>
+    let mouse = "up";
+    let eraser = "no";
+    let rainbow= "no";
+    function t() {
+        eraser = "yes";
+    }
+    function r() {
+        rainbow = "yes";
+    }
+    function re(){
+        rainbow="no";
+    }
+
+    let bdy = document.getElementById("bdy");
+    bdy.addEventListener("mousedown", down);
+    bdy.addEventListener("mouseup", up);
+    function down() {
+        mouse = "down";
+        // console.log(mouse)
+    }
+    function up() {
+        mouse = "up";
+        // console.log(mouse)
+    }
+
+
+    function fn() {
+        // let beta = document.getElementById("master");
+        master.innerHTML = "";
+        eraser = "no";
+        for (let i = 1; i <= (rsize.value * rsize.value); i++) {
+            let x = document.createElement("div");
+            let h = (500 / rsize.value) + "px";
+            x.style.height = h;
+            x.style.width = h;
+            x.style.backgroundColor = "white";
+            x.setAttribute("onmouseover", "alpha(this)")
+            x.setAttribute("onmousedown", "beta(this)")
+            x.setAttribute("id", "box" + i);
+            master.appendChild(x);
+            // console.log(this);
+        }
+    }
+    function alpha(v) {
+        if (mouse == "down") {
+            let num1 = Math.round((255) * Math.random());
+            let num2 = Math.round((255) * Math.random());
+            let num3 = Math.round((255) * Math.random());
+            if (eraser == "yes") {
+                y = "white";
+            } else if (rainbow == "yes") {
+                y = `rgb(${num1},${num2},${num3})`;
+            } else {
+                y = colp.value;
+            }
+            // v.setAttribute("style","backgroundColor:red;");
+            v.style.backgroundColor = y;
+        }
+        // console.log(v);
+    }
+    function beta(v) {
+        let num1 = Math.round((255) * Math.random());
+        let num2 = Math.round((255) * Math.random());
+        let num3 = Math.round((255) * Math.random());
+        if (eraser == "yes") {
+            y = "white";
+        } else if (rainbow == "yes") {
+            y = `rgb(${num1},${num2},${num3})`;
+        } else {
+            y = colp.value;
+        }
+        // v.setAttribute("style", "backgroundColor:red;");
+        v.style.backgroundColor = y;
+    }
+    function c(){
+        for(let i=1;i<=rsize.value*rsize.value;i++){
+            let m = document.getElementById("box"+i);
+            m.style.backgroundColor="white";
+        }
+    }
+
+</script>
+
+</html>
