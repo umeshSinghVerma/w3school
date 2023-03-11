@@ -73,33 +73,28 @@ body {
       
     }
     
-    .info-wrap h3 {
+    .abc h3 {
         color: #fff; }
-      .info-wrap .dbox {
+      .abc .qqq {
         width: 100%;
         color: rgba(255, 255, 255, 0.7);
         margin-bottom: 25px; }
-        .info-wrap .dbox:last-child {
-          margin-bottom: 0; }
-        .info-wrap .dbox p {
-          margin-bottom: 0; }
-  
-          .info-wrap .dbox p span {
+     .abc .qqq p span {
             font-weight: 400;
             color: rgba(255, 255, 255, 0.4);
             font-size: 20px;
             display: block;
-            text-transform: uppercase; }
+            }
   
-          .info-wrap .dbox p a {
+          .abc .qqq p a {
             color: rgba(255, 255, 255, 0.7); }
-        .info-wrap .dbox .icon {
+        .abc .qqq .icon {
           margin-top: 10px; }
           
-          .info-wrap .dbox .icon span {
+          .abc .qqq .icon span {
             font-size: 24px;
             color: #fff; }
-        .info-wrap .dbox .text {
+        .abc .qqq .text {
           width: 100%; }         
     
     /* footer */
