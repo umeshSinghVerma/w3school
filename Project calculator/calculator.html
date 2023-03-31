@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="calcstyle.css"> -->
+    <style>
+        * {
+            box-sizing: border-box;
+            /* user-select: none; */
+            color: white;
+            /* -webkit-user-drag: none; */
+        }
+
+        body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: grey;
+        }
+
+        .calcbox {
+            display: flex;
+            padding: 10px;
+            width: 350px;
+            height: 600px;
+            flex-wrap: wrap;
+            background-color: #202020;
+            border-radius: 20px;
+        }
+
+        #box {
+            text-align: right;
+            height: 50%;
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 20px;
+            background-color: #202020;
+        }
+
+        #result {
+            height: 50%;
+            width: 100%;
+            background-color: #202020;
+            display: flex;
+            align-items: flex-end;
+            justify-content: right;
+            font-size: 40px;
+            /* overflow-x: scroll; */
+        }
+
+        .top {
+            height: 150px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .smallbtn {
+            width: 75px;
+            height: 70px;
+            background-color: #3b3b3b;
+            margin: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            border-radius: 10px;
+            user-select: none;
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calcbox">
+        <div class="top">
+            <input type="text" id="box" placeholder="0" value="(5*(6-6)-6-6)*6" oninput="beta()">
+            <div id="result">0</div>
+        </div>
+        <div id="buttons"></div>
+    </div>
+</body>
+<script>
+    function check() {
+        o = 0;
+        c = 0;
+        console.log(box.value.length);
+        for (let i = 0; i < box.value.length; i++) {
+            if (box.value[i] == "(") {
+                o++;
+            } else if (box.value[i] == ")") {
+                c++;
+            }
+        }
+        console.log("o", o);
+        console.log("c", c);
+        if (c < o) {
+            return true;
+        }
+        else {            
+            return false;
+        }
+    }
+    let elements = ["CE", "C", ".", "+", "7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "(", "0", ")", "="]
+    let button = document.querySelector("#buttons");
+    for (let i = 0; i < 20; i++) {
+        x = document.createElement("div");
+        x.setAttribute("class", "smallbtn");
+        x.innerText = elements[i];
+        if (!isNaN(parseInt(x.innerText)) || x.innerText == "+" || x.innerText == "-" || x.innerText == "*" || x.innerText == "/" || x.innerText == "." || x.innerText == "(" || x.innerText == ")") {
+            if (x.innerText == ")") {
+                x.addEventListener("click", () => {
+                    if (check() == true) {
+                        box.value = box.value + elements[i];
+                        hero();
+                    } else {
+                        alert("The number of close brackets are now exceeding than open brackets. So it is now allowed")
+                    }
+                })
+            } else {
+                x.addEventListener("click", () => {
+                    box.value = box.value + elements[i];
+                    hero();
+                    check();
+                })
+            }
+        }
+        else if (x.innerText == "=") {
+            x.setAttribute("onclick", "hero()");
+        } else if (x.innerText == "CE") {
+            x.addEventListener("click", () => {
+                box.value = "";
+                hero();
+            })
+        }
+        else if (x.innerText == "C") {
+            x.setAttribute("onclick", "back()");
+        }
+        button.appendChild(x);
+    }
+    box.focus();
+    function back() {
+        console.log(box.value.length);
+        box.value = box.value.slice(0, box.value.length - 1);
+        hero();
+    }
+    document.onkeydown = function (e) {
+        if (e.key == "0" || e.key == "1" || e.key == "2" || e.key == "3" || e.key == "4" || e.key == "5" || e.key == "6" || e.key == "7" || e.key == "8" || e.key == "9" || e.key == "+" || e.key == "-" || e.key == "/" || e.key == "*" || e.key == "0" || e.key == "(" ||e.key == "Backspace" || e.key == "ArrowRight" || e.key == "ArrowLeft" || e.key == "Delete" || e.key == "End" || e.key == "Home") {
+            return true;
+        }
+        else if (e.key == "Enter" && box.value != "") {
+            hero();
+         }else if(e.key==")"){
+            if(check()==false){
+                alert("The number of close brackets are now exceeding than open brackets. So it is now allowed");
+                return false;
+            }else{
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+
+    }
+    function hero() {
+        let newarr = [];
+        let ival = [];
+        let temp = "";
+        for (let i = 0; i < box.value.length; i++) {
+            if (box.value[i] == '+' || box.value[i] == '*' || box.value[i] == '-' || box.value[i] == '/' || box.value[i] == '(' || box.value[i] == ')') {
+                newarr.push(parseFloat(temp));
+                if (isNaN(newarr[newarr.length - 1])) {
+                    newarr.pop();
+                }
+                newarr.push(box.value[i]);
+                temp = "";
+                ival.push(i);
+            } else {
+                temp = temp + box.value[i];
+            }
+        }
+        newarr.push(parseFloat(box.value.slice(ival[ival.length - 1] + 1)));
+        if (isNaN(newarr[newarr.length - 1])) {
+            newarr.pop();
+        }
+        modifiedarr = []
+        let i = 0;
+        let t = 0;
+        regex = /[0-9]/;
+        while (i < newarr.length) {
+            if (newarr[i] == "-" && (regex.test(newarr[i + 1]) == true)) {
+                modifiedarr[t] = "+";
+                modifiedarr[t + 1] = -1 * newarr[i + 1];
+                i = i + 2;
+                t = t + 2;
+                continue;
+            }
+            else if (newarr[i + 1] == "(" && (regex.test(newarr[i]) == true)) {
+                modifiedarr[t] = newarr[i];
+                modifiedarr[t + 1] = "*";
+                t = t + 1;
+                i++;
+            }
+            else if (newarr[i] == ")" && (regex.test(newarr[i + 1]) == true)) {
+                modifiedarr[t] = newarr[i];
+                modifiedarr[t + 1] = "*";
+                t = t + 1;
+                i++;
+            }
+            else {
+                modifiedarr[t] = newarr[i];
+                i++;
+            }
+            t++;
+        }
+        newarr = modifiedarr;
+        let o = [];
+        for (let i = 0; i < newarr.length; i++) {
+            if (newarr[i] == "(") {
+                o.push(i);
+            }
+        }
+        for (let i = o.length - 1; i >= 0; i--) {
+            let c = [];
+            for (let i = 0; i < newarr.length; i++) {
+                if (newarr[i] == ")") {
+                    c.push(i);
+                }
+            }
+            let ans1;
+            let index;
+            for (let j = 0; j < c.length; j++) {
+                if (c[j] > o[i]) {
+                    ans1 = c[j];
+                    index = j;
+                    break;
+                }
+            }
+            c1 = c.slice(0, index);
+            c2 = c.slice(index + 1);
+            c = c1.concat(c2);
+            inarr = newarr.slice(o[i] + 1, ans1);
+            let resulta = calculation(inarr);
+            let first = newarr.slice(0, o[i]);
+            let mid = [resulta];
+            let last = newarr.slice(ans1 + 1)
+            newarr = first.concat(mid, last);
+        }
+        finalans = calculation(newarr)
+        if (isNaN(finalans) || finalans == undefined) {
+            result.innerText = "";
+        } else {
+            result.innerText = finalans;
+        }
+
+    }
+
+    function calculation(newarr) {
+        a = 0;
+        m = 0;
+        d = 0;
+        mul = 0;
+        // regex=/[0-9]/
+        // if(regex.test(newarr))
+        for (i = 0; i < newarr.length; i++) {
+            if (newarr[i] == "+") {
+                a++;
+            }
+            else if (newarr[i] == "-") {
+                m++;
+            }
+            else if (newarr[i] == "*") {
+                mul++;
+            }
+            else if (newarr[i] == "/") {
+                d++;
+            }
+        }
+        for (let num = 0; num < d; num++) {
+            for (i = 0; i < newarr.length; i++) {
+                if (newarr[i] == "/") {
+                    let ans = div(newarr[i - 1], newarr[i + 1]);
+                    let first = newarr.slice(0, i - 1);
+                    let mid = [ans];
+                    let last = newarr.slice(i + 2)
+                    newarr = first.concat(mid, last);
+                }
+            }
+        }
+        for (let num = 0; num < mul; num++) {
+            for (i = 0; i < newarr.length; i++) {
+                if (newarr[i] == "*") {
+                    let ans = mult(newarr[i - 1], newarr[i + 1]);
+                    let first = newarr.slice(0, i - 1);
+                    let mid = [ans];
+                    let last = newarr.slice(i + 2)
+                    newarr = first.concat(mid, last);
+                }
+            }
+        }
+        for (let num = 0; num < a; num++) {
+            for (i = 0; i < newarr.length; i++) {
+                if (newarr[i] == "+") {
+                    let ans = add(newarr[i - 1], newarr[i + 1]);
+                    let first = newarr.slice(0, i - 1);
+                    let mid = [ans];
+                    let last = newarr.slice(i + 2)
+                    newarr = first.concat(mid, last);
+                }
+            }
+        }
+        for (let num = 0; num < m; num++) {
+            for (i = 0; i < newarr.length; i++) {
+                if (newarr[i] == "-") {
+                    let ans = sub(newarr[i - 1], newarr[i + 1]);
+                    let first = newarr.slice(0, i - 1);
+                    let mid = [ans];
+                    let last = newarr.slice(i + 2)
+                    newarr = first.concat(mid, last);
+                }
+            }
+        }
+        return newarr[0];
+    }
+    function checkcols() {
+        o = 0;
+        c = 0;
+        for (let i = 0; i < newarr.length; i++) {
+            if (newarr[i] == "(") {
+                o++;
+            } else if (newarr[i] = ")") {
+                c++;
+            }
+        }
+        if (o != c) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    function add(a, b) {
+        return a + b;
+    }
+    function div(a, b) {
+        return a / b;
+    }
+    function sub(a, b) {
+        return a - b;
+    }
+    function mult(a, b) {
+        return a * b;
+    }
+
+
+
+</script>
+
+</html>
