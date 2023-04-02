@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Insert Text at Cursor Position with JavaScript</title>
+  </head>
+  <body>
+    <input type="text" id="box">
+    <button onclick="insertText()">Insert Text</button>
+
+    <script>
+      function insertText() {
+        // Get the input field and its current value
+        const inputField = document.getElementById('box');
+        const currentValue = inputField.value;
+
+        // Get the cursor position
+        const cursorPosition = inputField.selectionStart;
+
+        // Insert the new text at the cursor position
+        const newValue = currentValue.slice(0, cursorPosition) + 'Hello World' + currentValue.slice(cursorPosition);
+        inputField.value = newValue;
+
+        // Set the new cursor position
+        inputField.selectionStart = cursorPosition + 11;
+        inputField.selectionEnd = cursorPosition + 11;
+      }
+    </script>
+  </body>
+</html>

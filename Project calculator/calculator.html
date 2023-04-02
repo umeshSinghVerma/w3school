@@ -17,19 +17,23 @@
 
         body {
             height: 100vh;
+            width: 100vw;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: grey;
+            position: relative;
+            overflow: hidden;
         }
 
         .calcbox {
             display: flex;
+            /* position: relative; */
             padding: 10px;
             width: 350px;
-            height: 600px;
+            height: 620px;
             flex-wrap: wrap;
             background-color: #202020;
             border-radius: 20px;
@@ -82,23 +86,242 @@
             justify-content: space-between;
             flex-wrap: wrap;
         }
+
+        #hisbox {
+            display: flex;
+            flex-direction: column;
+            right: 5px;
+            position: absolute;
+            height: 100vh;
+        }
+
+        #history {
+            width: inherit;
+            height: 90vh;
+            overflow: scroll;
+            overflow-x: hidden;
+            /* margin: 50px; */
+        }
+
+        #history::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        #history::-webkit-scrollbar-track {
+            border-radius: 8px;
+            background-color: grey;
+            border: 1px solid grey;
+            margin: 10px;
+        }
+
+        #history::-webkit-scrollbar-thumb {
+            border-radius: 8px;
+            background-color: #383636;
+            /* border: 1px solid transparent; */
+            /* background-clip: content-box; */
+        }
+
+        .historyboxes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: inherit;
+            background-color: #161010;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .his {
+            width: inherit;
+            min-width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #161010;
+            border-radius: 10px;
+            margin: 10px;
+            height: 40px;
+            user-select: none;
+        }
+
+        .deletebox {
+            padding: 5px;
+            margin: 0px 0px 0px 10px;
+        }
+        #h{
+            height: 30px;
+            width: 30px;
+            color: black;
+            display: none;
+        }
+        #mobilehisbox{
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            /* width: inherit; */
+            background-color: #202020;
+            height: 385px;
+            z-index: 10;
+            border-radius: 10px;
+            display: none;
+            overflow: scroll;
+            
+        }
+        @media screen and (max-width:768px) {
+            #h{
+            display: block;
+            }
+            .calcbox{
+                position: relative;
+            }
+            #hisbox{
+                display: none;
+            }
+        }
+        @media screen and (min-width:768px) {
+            #hisbox{
+                display: flex;
+                flex-direction: column;
+                right: 5px;
+                position: absolute;
+                height: 100vh;
+            }            
+        }
     </style>
 </head>
 
-<body>
+<body onload="hello()">
     <div class="calcbox">
+        <button id="h" onclick="mobilehistoryshow()">H</button>
         <div class="top">
-            <input type="text" id="box" placeholder="0" oninput="beta()">
+            <input type="text" id="box" placeholder="0">
             <div id="result">0</div>
         </div>
         <div id="buttons"></div>
+        <div id="mobilehisbox"></div>
+        <div id="hisbox">
+            <div class="his">History</div>
+            <div id="history"></div>
+        </div>
     </div>
 </body>
 <script>
+    function mobilehistoryshow(){
+        if(window.innerWidth<=768 && hisbox.style.display!="flex"){
+            hisbox.style.cssText=`
+                right: 5px;
+                left: 5px;
+                height: 390px;
+                bottom:5px;
+                background-color: #202020;
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                `
+        }else if(window.innerWidth<=768 && hisbox.style.display=="flex"){
+            hisbox.style.cssText=`
+                right: 5px;
+                left: 5px;
+                height: 390px;
+                bottom:5px;
+                background-color: #202020;
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                `
+        }
+    }
+    function remove(k) {
+        event.stopPropagation();
+        let p1 = k.parentNode;
+        let p2 = p1.parentNode;
+        p2.removeChild(p1);
+        localStorage.removeItem(k.children[0].innerText);
+        // console.log(p2);
+    }
+    function clearall() {
+        localStorage.clear();
+        history.innerHTML = "";
+    }
+    function historyboxesfn(ele) {
+        x = ele.innerText;
+        arr = x.split(" ");
+        // console.log(arr);
+        box.value = arr[0];
+        // result.innerText = arr[2];
+        newarr = arr[2].split("\n");
+        result.innerText = newarr[0];
+    }
+    let history = document.getElementById("history");
+    let keyarray = [];
+    let arrlist = [];
+    if (localStorage.getItem("keys") == null) {
+        localStorage.setItem("keys", JSON.stringify(keyarray));
+    } else {
+        arrlist = JSON.parse(localStorage.getItem("keys"));
+        keyarray = arrlist;
+    }
+    function hello() {
+        for (i = 0; i < arrlist.length; i++) {
+            if (JSON.parse(localStorage.getItem(arrlist[i])) != null) {
+                let a = document.createElement("div");
+                let b = document.createElement("div");
+                b.innerText = "x";
+                b.style.backgroundColor = "red";
+                a.setAttribute("class", "historyboxes");
+                a.setAttribute("onclick", "historyboxesfn(this)");
+                g = JSON.parse(localStorage.getItem(arrlist[i]));
+                a.innerHTML = `${g.str} = ${g.res} `;
+                b.setAttribute("onclick", "remove(this)");
+                b.setAttribute("class", "deletebox");
+                c = document.createElement("div");
+                c.innerText = arrlist[i];
+                c.style.display = "none";
+                b.appendChild(c);
+                a.appendChild(b);
+                history.appendChild(a);
+            }
+        }
+    }
+
+    window.onbeforeunload = function () { myUnloadEvent(); }
+    function myUnloadEvent() {
+        if (box.value != "") {
+            let l = keyarray.length + 1;
+            let obj = {
+                str: box.value,
+                res: result.innerText,
+                no: l
+            };
+            localStorage.setItem(l, JSON.stringify(obj));
+            keyarray.push(l);
+            let a = document.createElement("div");
+            a.setAttribute("class", "historyboxes");
+            a.setAttribute("onclick", "historyboxesfn(this)");
+            g = JSON.parse(localStorage.getItem(i));
+            a.innerHTML = `${g.str} = ${g.res} `;
+            let b = document.createElement("div");
+            b.innerText = "x";
+            b.setAttribute("class", "deletebox");
+            b.style.backgroundColor = "red";
+            b.setAttribute("onclick", "remove(this)");
+            c = document.createElement("div");
+            c.innerText = l;
+            c.style.display = "none";
+            b.appendChild(c);
+            a.appendChild(b);
+            history.appendChild(a);
+            localStorage.setItem("keys", JSON.stringify(keyarray));
+        }
+    }
     function check() {
         o = 0;
         c = 0;
-        console.log(box.value.length);
+        // console.log(box.value.length);
         for (let i = 0; i < box.value.length; i++) {
             if (box.value[i] == "(") {
                 o++;
@@ -106,26 +329,33 @@
                 c++;
             }
         }
-        console.log("o", o);
-        console.log("c", c);
         if (c < o) {
             return true;
         }
-        else {            
+        else {
             return false;
         }
     }
-    let elements = ["CE", "C", ".", "+", "7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "(", "0", ")", "="]
+    let elements = ["CE", "C", "CH", "+", "7", "8", "9", "/", "4", "5", "6", "x", "1", "2", "3", "-", "(", "0", ")", "."]
     let button = document.querySelector("#buttons");
+
     for (let i = 0; i < 20; i++) {
         x = document.createElement("div");
         x.setAttribute("class", "smallbtn");
         x.innerText = elements[i];
-        if (!isNaN(parseInt(x.innerText)) || x.innerText == "+" || x.innerText == "-" || x.innerText == "*" || x.innerText == "/" || x.innerText == "." || x.innerText == "(" || x.innerText == ")") {
+        if (!isNaN(parseInt(x.innerText)) || x.innerText == "+" || x.innerText == "-" || x.innerText == "x" || x.innerText == "/" || x.innerText == "." || x.innerText == "(" || x.innerText == ")") {
             if (x.innerText == ")") {
                 x.addEventListener("click", () => {
                     if (check() == true) {
-                        box.value = box.value + elements[i];
+                        // box.value = box.value + elements[i];
+                        const inputField = document.getElementById('box');
+                        const currentValue = inputField.value;
+                        const cursorPosition = inputField.selectionStart;
+                        const newValue = currentValue.slice(0, cursorPosition) + `)` + currentValue.slice(cursorPosition);
+                        inputField.value = newValue;
+                        box.focus();
+                        inputField.selectionStart = cursorPosition + 1;
+                        inputField.selectionEnd = cursorPosition + 1;
                         hero();
                     } else {
                         alert("The number of close brackets are now exceeding than open brackets. So it is now allowed")
@@ -133,18 +363,55 @@
                 })
             } else {
                 x.addEventListener("click", () => {
-                    box.value = box.value + elements[i];
+                    const inputField = document.getElementById('box');
+                    const currentValue = inputField.value;
+                    const cursorPosition = inputField.selectionStart;
+                    const newValue = currentValue.slice(0, cursorPosition) + `${elements[i]}` + currentValue.slice(cursorPosition);
+                    inputField.value = newValue;
+                    box.focus();
+                    inputField.selectionStart = cursorPosition + 1;
+                    inputField.selectionEnd = cursorPosition + 1;
                     hero();
                     check();
                 })
             }
         }
-        else if (x.innerText == "=") {
-            x.setAttribute("onclick", "hero()");
-        } else if (x.innerText == "CE") {
+        else if (x.innerText == "CH") {
+            x.setAttribute("onclick", "clearall()");
+        }
+        else if (x.innerText == "CE") {
             x.addEventListener("click", () => {
+                if (box.value != "") {
+
+                    let a = document.createElement("div");
+                    a.setAttribute("onclick", "historyboxesfn(this)");
+                    a.setAttribute("class", "historyboxes");
+                    let l = keyarray.length + 1;
+                    let obj = {
+                        str: box.value,
+                        res: result.innerText,
+                        no: l
+                    };
+                    localStorage.setItem(l, JSON.stringify(obj));
+                    keyarray.push(l);
+                    a.innerHTML = `${obj.str} = ${obj.res}`;
+                    let b = document.createElement("div");
+                    b.innerText = " x ";
+                    b.setAttribute("class", "deletebox");
+                    b.style.backgroundColor = "red";
+                    b.setAttribute("onclick", "remove(this)");
+                    c = document.createElement("div");
+                    c.innerText = l;
+                    c.style.display = "none";
+                    b.appendChild(c);
+                    a.appendChild(b);
+                    // console.log(b);
+                    history.appendChild(a);
+                    localStorage.setItem("keys", JSON.stringify(keyarray));
+                }
+
                 box.value = "";
-                hero();
+                result.innerText = "0";
             })
         }
         else if (x.innerText == "C") {
@@ -154,21 +421,31 @@
     }
     box.focus();
     function back() {
-        console.log(box.value.length);
-        box.value = box.value.slice(0, box.value.length - 1);
+        const inputField = document.getElementById('box');
+        const currentValue = inputField.value;
+        const cursorPosition = inputField.selectionStart;
+        const newValue = currentValue.slice(0, cursorPosition - 1) + currentValue.slice(cursorPosition);
+        // console.log(newValue);
+        inputField.value = "";
+        inputField.value = newValue;
+        box.focus();
+        inputField.selectionStart = cursorPosition - 1;
+        inputField.selectionEnd = cursorPosition - 1;
         hero();
+        check();
     }
     document.onkeydown = function (e) {
-        if (e.key == "0" || e.key == "1" || e.key == "2" || e.key == "3" || e.key == "4" || e.key == "5" || e.key == "6" || e.key == "7" || e.key == "8" || e.key == "9" || e.key == "+" || e.key == "-" || e.key == "/" || e.key == "*" || e.key == "0" || e.key == "(" ||e.key == "Backspace" || e.key == "ArrowRight" || e.key == "ArrowLeft" || e.key == "Delete" || e.key == "End" || e.key == "Home") {
+        if (e.key == "0" || e.key == "1" || e.key == "2" || e.key == "3" || e.key == "4" || e.key == "5" || e.key == "6" || e.key == "7" || e.key == "8" || e.key == "9" || e.key == "+" || e.key == "-" || e.key == "/" || e.key == "*" || e.key == "0" || e.key == "(" || e.key == "Backspace" || e.key == "ArrowRight" || e.key == "ArrowLeft" || e.key == "Delete" || e.key == "End" || e.key == "Home") {
+            box.focus();
             return true;
         }
         else if (e.key == "Enter" && box.value != "") {
             hero();
-         }else if(e.key==")"){
-            if(check()==false){
+        } else if (e.key == ")") {
+            if (check() == false) {
                 alert("The number of close brackets are now exceeding than open brackets. So it is now allowed");
                 return false;
-            }else{
+            } else {
                 return true;
             }
         }
@@ -177,12 +454,13 @@
         }
 
     }
+
     function hero() {
         let newarr = [];
         let ival = [];
         let temp = "";
         for (let i = 0; i < box.value.length; i++) {
-            if (box.value[i] == '+' || box.value[i] == '*' || box.value[i] == '-' || box.value[i] == '/' || box.value[i] == '(' || box.value[i] == ')') {
+            if (box.value[i] == '+' || box.value[i] == 'x' || box.value[i] == '-' || box.value[i] == '/' || box.value[i] == '(' || box.value[i] == ')') {
                 newarr.push(parseFloat(temp));
                 if (isNaN(newarr[newarr.length - 1])) {
                     newarr.pop();
@@ -199,20 +477,15 @@
             newarr.pop();
         }
         modifiedarr = []
+        // console.log(newarr);
         let i = 0;
         let t = 0;
         regex = /[0-9]/;
         while (i < newarr.length) {
-            if (newarr[i] == "-" && (regex.test(newarr[i + 1]) == true)) {
-                modifiedarr[t] = "+";
-                modifiedarr[t + 1] = -1 * newarr[i + 1];
-                i = i + 2;
-                t = t + 2;
-                continue;
-            }
-            else if (newarr[i + 1] == "(" && (regex.test(newarr[i]) == true)) {
-                modifiedarr[t] = newarr[i];
-                modifiedarr[t + 1] = "*";
+            if (newarr[i] == "(" && (regex.test(newarr[i - 1]) == true)) {
+                // console.log("hi");
+                modifiedarr[t] = "*";
+                modifiedarr[t + 1] = newarr[i];
                 t = t + 1;
                 i++;
             }
@@ -222,6 +495,17 @@
                 t = t + 1;
                 i++;
             }
+            else if (newarr[i] == "-" && (regex.test(newarr[i + 1]) == true)) {
+                modifiedarr[t] = "+";
+                modifiedarr[t + 1] = -1 * newarr[i + 1];
+                i = i + 2;
+                t = t + 2;
+                continue;
+            }
+            else if (newarr[i] == "x") {
+                modifiedarr[t] = "*";
+                i++;
+            }
             else {
                 modifiedarr[t] = newarr[i];
                 i++;
@@ -229,6 +513,7 @@
             t++;
         }
         newarr = modifiedarr;
+        // console.log(modifiedarr);
         let o = [];
         for (let i = 0; i < newarr.length; i++) {
             if (newarr[i] == "(") {
@@ -261,16 +546,19 @@
             let last = newarr.slice(ans1 + 1)
             newarr = first.concat(mid, last);
         }
-        finalans = calculation(newarr)
+        finalans = calculation(newarr);
+        if (finalans % 1 != 0 && (isNaN(finalans) || finalans == undefined)) {
+            finalans = finalans.toFixed(13);
+        }
         if (isNaN(finalans) || finalans == undefined) {
             result.innerText = "";
         } else {
             result.innerText = finalans;
         }
-
     }
 
     function calculation(newarr) {
+        // console.log(newarr)
         a = 0;
         m = 0;
         d = 0;
