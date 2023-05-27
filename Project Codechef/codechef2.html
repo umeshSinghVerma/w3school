@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@300;400;600;700;800&family=Roboto+Mono:wght@100;300;400;500;700&family=Lato:wght@100;300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.codechef.com/css/tiny-slider-2.9.3.css">
+    <script src="https://cdn.codechef.com/js/tiny-slider-2.9.3.js"></script>
+    <script src='/sites/all/themes/mallow/js/mallow.slider.js?v=90c1b846dabb32c295ac44633f0d37f2'></script>
+    <title>Competitive Programming | Participate & Learn | Codechef</title>
+    <style>
+        body{
+            background-image: url("https://www.w3schools.com/css/paris.jpg");
+            height: 5000px;
+            min-width: 484px;
+        }
+        * {
+            margin: 0px;
+            padding: 0px;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        .header {
+            width: 100%;
+            height: 72px;
+            display: block;
+            border: inset;
+            border-width: 0px 0px 1px 0px;
+            padding-right: 40px;
+            background-color: white;
+            position: sticky;
+            top: 0;
+        }
+
+        .logocontainer{
+            float: left;
+            height: 100%;
+            margin-left:55px ;
+        }
+
+        .header_elements_left1 {
+            float: right;
+            position: relative;
+            height: 100%;
+            width: 150px;
+        }
+
+        .header_elements_left1 img {
+            position: absolute;
+            width: 150px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+        .header_elements_left2 {
+            float: right;
+            position: relative;
+            height: 100%;
+            width: 50px;
+        }
+
+        .header_elements_left2 img {
+            position: absolute;
+            width: 50px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        @media only screen and (max-width: 700px) {
+            .header_elements_left1 {
+                display: none;
+            }
+            .logocontainer{
+            margin-left: 22px;
+            }
+        }
+        @media only screen and (min-width: 700px) {
+            .header_elements_left2{
+                display: none;
+            }
+        }
+        @media only screen and (max-width: 980px) {
+            .logocontainer{
+            margin-left: 22px;
+            }
+            #learncontainer{
+                display: none;
+                width: 0px;
+            }
+            #practicecontainer{
+                display: none;
+                width: 0px;
+            }
+            #competecontainer{
+                display: none;
+                width: 0px;
+            }
+            #upgradeicon {
+            margin-left: 0px;
+            }
+            .rightbar {
+                box-sizing: border-box;
+                float: right;
+                height: 72px;
+                /* width: 630px; */
+                /* padding-right: 25px; */
+            }
+        }      
+        
+
+        .rightbar {
+            float: right;
+            height: 72px;
+        }
+
+        #learncontainer {
+            position: relative;
+            float: left;
+            margin: 0px 10px;
+            height: 100%;
+            width: 50px;
+        }
+
+        #learncontainer a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #4a4a4a;
+            font-family: "Open Sans", serif;
+            font-size: 14px;
+        }
+
+        #learncontainer a:hover {
+            background-color: #eeedf0;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 15px;
+            padding-Left: 15px;
+        }
+        #practicecontainer a:hover {
+            background-color: #eeedf0;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 15px;
+            padding-Left: 15px;
+        }
+        #competecontainer a:hover {
+            background-color: #eeedf0;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 15px;
+            padding-Left: 15px;
+        }
+
+
+        #practicecontainer {
+            position: relative;
+            float: left;
+            margin: 0px 20px 0px 10px;
+            height: 100%;
+            width: 50px;
+        }
+
+        #practicecontainer a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #4a4a4a;
+            font-family: "Open Sans", serif;
+            font-size: 14px;
+        }
+
+        #competecontainer {
+            position: relative;
+            float: left;
+            margin: 0px 10px;
+            height: 100%;
+            width: 50px;
+            margin-right: 50px;
+        }
+
+        #competecontainer a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #4a4a4a;
+            font-family: "Open Sans", serif;
+            font-size: 14px;
+        }
+
+        #upgradecontainer {
+            position: relative;
+            float: left;
+            height: 100%;
+            width: 105px;
+        }
+
+        #upgradecontainer a {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            color: #6b4024;
+            font-family: "Open Sans", serif;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        #upgradeicon {
+            position: relative;
+            float: left;
+            margin: 0px 12px;
+            height: 100%;
+            width: 0px;
+        }
+
+        #upgradeicon img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 18px;
+        }
+        #breaker{
+            position: relative;
+            float: left;
+            height: 100%;
+            width: 40px;
+            margin-left:25px;
+
+        }
+        #inside{
+            border: solid #c0c5cd;
+            border-width: 0px 0px 0px 1px;
+            width: inherit;
+            height: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #logincontainer {
+            position: relative;
+            float: left;
+            margin: 0px 30px 0px 10px;
+            height: 100%;
+            width: 35px;
+        }
+
+        #logincontainer a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-decoration: none;
+            color: #2a67b1;
+            font-family: "Open Sans", serif;
+            font-weight: 600;
+            font-size: 14px;
+
+        }
+
+        #signupcontainer {
+            overflow:hidden;
+            position: relative;
+            float: left;
+            margin: 0px 10px;
+            height: 100%;
+            width: 109px;
+        }
+
+        #signupcontainer a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* width: 100%; */
+            transform: translate(-50%, -50%);
+            border: solid 1px;
+            padding: 0px 28px;
+            font-size: 14px;
+            white-space: nowrap;
+            line-height: 32px;
+            text-decoration: none;
+            color: #2a67b1;
+            border-radius: 2px;
+            font-family: "Open Sans", serif;
+            font-weight: 600;
+        }
+        #loginsignupcontainer {
+            overflow:hidden;
+            position: relative;
+            float: left;
+            margin: 0px 10px;
+            height: 100%;
+            width: 155px;
+            display: none;
+        }
+
+        #loginsignupcontainer a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* width: 100%; */
+            transform: translate(-50%, -50%);
+            border: solid 1px;
+            padding: 0px 28px;
+            font-size: 14px;
+            white-space: nowrap;
+            line-height: 32px;
+            text-decoration: none;
+            color: #2a67b1;
+            border-radius: 2px;
+            font-family: "Open Sans", serif;
+            font-weight: 600;
+        }
+        #logincontainer a:hover{
+            background-color: #2a67b1;
+            color: white;
+        }
+        @media only screen and (max-width: 600px) {
+            #logincontainer{
+                display: none;
+            }
+            #signupcontainer{
+                display: none;
+            }
+            #loginsignupcontainer{
+                display: block;
+            }
+            #breaker{
+                width: 20px;
+            }
+            .header{
+                padding-right: 20px;
+            }
+        }
+        .headeroccupier{
+            width: 100%;
+            height: 60px;
+            display: none;
+            background-color: white;
+            position:fixed;
+        }
+        .headeroccupier .container{
+            height: 60px;
+            width: 260px;
+            margin: auto;
+        }
+        #learncontainer1 {
+            position: relative;
+            float: left;
+            margin: 0px 10px;
+            height: 100%;
+            width: 50px;
+        }
+
+        #learncontainer1 a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #4a4a4a;
+            font-family: "Open Sans", serif;
+            font-size: 14px;
+        }
+
+        #learncontainer1 a:hover {
+            background-color: #eeedf0;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 15px;
+            padding-Left: 15px;
+        }
+        #practicecontainer1 a:hover {
+            background-color: #eeedf0;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 15px;
+            padding-Left: 15px;
+        }
+        #competecontainer1 a:hover {
+            background-color: #eeedf0;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 15px;
+            padding-Left: 15px;
+        }
+
+
+        #practicecontainer1 {
+            position: relative;
+            float: left;
+            margin: 0px 20px 0px 10px;
+            height: 100%;
+            width: 50px;
+        }
+
+        #practicecontainer1 a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #4a4a4a;
+            font-family: "Open Sans", serif;
+            font-size: 14px;
+        }
+
+        #competecontainer1 {
+            position: relative;
+            float: left;
+            margin: 0px 10px;
+            height: 100%;
+            width: 50px;
+            margin-right: 50px;
+        }
+
+        #competecontainer1 a {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #4a4a4a;
+            font-family: "Open Sans", serif;
+            font-size: 14px;
+        }
+        @media screen and (max-width: 980px) {
+            .headeroccupier{
+                display: block;
+            }           
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logocontainer">
+            <div class="header_elements_left1">
+                <a href="https://www.codechef.com/">
+                    <p><img src="https://cdn.codechef.com/images/cc-logo.svg" alt="codechef image"></p>
+                </a>
+            </div>
+            <div class="header_elements_left2">
+                <a href="https://www.codechef.com/">
+                    <p><img src="https://cdn.codechef.com/images/cc-logo-mobile-1.svg" alt="codechef image"></p>
+                </a>
+            </div>
+        </div>
+        <div class="rightbar">
+            <div id="learncontainer" class="header_elements_right"><a
+                    href="https://www.codechef.com/learn?itm_medium=navmenu&itm_campaign=learncp">Learn</a></div>
+            <div id="practicecontainer" class="header_elements_right"><a href="https://www.codechef.com/practice?end_rating=999&group=all&hints=0&itm_campaign=practice&itm_medium=navmenu&limit=20&page=0&search=&sort_by=difficulty_rating&sort_order=asc&start_rating=0&tags=&topic=&video_editorial=0&wa_enabled=0">Practice</a></div>
+            <div id="competecontainer" class="header_elements_right"><a href="https://www.codechef.com/contests?itm_medium=navmenu&itm_campaign=allcontests">Compete</a></div>
+            <div id="upgradeicon" class="header_elements_right"><img
+                    src="https://cdn.codechef.com/images/home/premium-icon.svg" alt="icon"></div>
+            <div id="upgradecontainer" class="header_elements_right"><a href="https://www.codechef.com/pro?itm_medium=header-mallow&itm_campaign=CC_Pro">Upgrade To Pro</a></div>
+            <div id="breaker"><div id="inside"></div></div>
+            <div id="logincontainer" class="header_elements_right"><a href="https://www.codechef.com/login?destination=/">Login</a></div>
+            <div id="signupcontainer" class="header_elements_right"><a href="https://www.codechef.com/signup?destination=/">Sign Up</a></div>
+            <div id="loginsignupcontainer" class="header_elements_right"><a href="https://www.codechef.com/login?destination=/">Login/Sign Up</a></div>
+        </div>
+    </div>
+    <div class="headeroccupier">
+        <div class="container">
+            <div id="learncontainer1" class="header_elements_right"><a
+            href="https://www.codechef.com/learn?itm_medium=navmenu&itm_campaign=learncp">Learn</a></div>
+            <div id="practicecontainer1" class="header_elements_right"><a href="https://www.codechef.com/practice?end_rating=999&group=all&hints=0&itm_campaign=practice&itm_medium=navmenu&limit=20&page=0&search=&sort_by=difficulty_rating&sort_order=asc&start_rating=0&tags=&topic=&video_editorial=0&wa_enabled=0">Practice</a></div>
+            <div id="competecontainer1" class="header_elements_right"><a href="https://www.codechef.com/contests?itm_medium=navmenu&itm_campaign=allcontests">Compete</a></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -80,6 +80,10 @@
             border-radius: 10px;
             user-select: none;
         }
+        .smallbtn:active{
+            scale: 0.9;
+            transition-duration: 200ms;
+        }
 
         #buttons {
             display: flex;
@@ -480,7 +484,7 @@
         // console.log(newarr);
         let i = 0;
         let t = 0;
-        regex = /[0-9]/;
+        regex = /[0-9)]/;
         while (i < newarr.length) {
             if (newarr[i] == "(" && (regex.test(newarr[i - 1]) == true)) {
                 // console.log("hi");
@@ -547,7 +551,7 @@
             newarr = first.concat(mid, last);
         }
         finalans = calculation(newarr);
-        if (finalans % 1 != 0 && (isNaN(finalans) || finalans == undefined)) {
+        if (finalans % 1 != 0 && (!isNaN(finalans) || finalans != undefined)) {
             finalans = finalans.toFixed(13);
         }
         if (isNaN(finalans) || finalans == undefined) {
@@ -653,9 +657,6 @@
     function mult(a, b) {
         return a * b;
     }
-
-
-
 </script>
 
 </html>

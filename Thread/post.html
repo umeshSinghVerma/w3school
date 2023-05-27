@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Thread</title>
+    <link rel="icon" href="images/logo.jpeg">
+    </link>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="posts-section" class="posts dark-mode-1"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"></script>
+        <script>
+
+
+let maindiv = document.getElementById('posts-section');
+function getid(){
+          const result2 = document.querySelector('.result2')
+          console.log(2)
+          const fetchP = async () => {
+              try {
+                console.log(3)
+                const data  = await axios.get('http://localhost:8080/posts/3',{mode:'cors'})
+                result2.innerHTML=JSON.stringify(data);
+                console.log(data);
+            } catch (error) {
+                console.log(4)
+              result2.innerHTML = `<div class="alert alert-danger">Can't Fetch Data</div>`
+            }
+        }
+        fetchP();
+      }
+        </script>
+</body>
