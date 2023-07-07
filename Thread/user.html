@@ -18,9 +18,9 @@
 <style>
     #addpost{
         position: fixed;
-        bottom: 20px;
-        right: 20px;
-        scale: 1.5;
+        bottom: 50px;
+        right: 80px;
+        scale: 2.5;
     }
     #addpostform{
         display: none;
@@ -564,14 +564,14 @@
         <form>
           <h3>Add a new post</h3>
           <div class="form-row">
-            <label for="userId"> Enter id </label>
+            <!-- <label for="userId"> Enter id </label>
             <input
               type="number"
               name="userId"
               id="userId"
               class="form-input"
               autocomplete="false"
-            />
+            /> -->
             <label for="desc"> Enter Description </label>
             <input
               type="text"
@@ -605,24 +605,26 @@
         const fetchPost = async () => {
             try {
                 const dat = await axios.get('http://localhost:8080/posts/', { mode: 'cors' })
-                console.log("initialy", dat);
+                console.log("initially", dat);
                 let maindiv = document.getElementById('posts-section');
                 let content = "";
                 for (let i = 0; i < dat.data.length; i++) {
+                  let p = dat.data[i].postId;
+                  p = p.toString();
                     content = content +
-                `<div onClick=getid(${dat.data[i].postId})><div class="post border">
+                `<div onclick={getid('${p}')}><div class="post border">
                     <div class="user-avatar">
-                        <img src="${dat.data[i].profileUrl}" alt="">
+                        <img src="${dat.data[i].profileImage}" alt="">
                     </div>
                     <div class="post-content">
                         <div class="post-user-info light-text">
                             <h4>${dat.data[i].userName}</h4>
                             <i class="fas fa-check-circle"></i>
-                            <span>@${dat.data[1].userId}</span>
+                            <span>@${dat.data[i].userId} .&nbsp&nbsp ${dat.data[i].creationTime}</span>
                         </div>
-                        <p class="post-text light-text">${dat.data[i].desc}</p>
+                        <p class="post-text light-text">${dat.data[i].description}</p>
                         <div class="post-img">
-                            <img src="${dat.data[i].imageUrl}" alt="post">
+                            <img src="${dat.data[i].postImage}" alt="post">
                         </div>
                   
                     </div>
@@ -646,7 +648,7 @@
                     maindiv.innerHTML=`
                     <div class="post border">
                         <div class="user-avatar">
-                            <img src="${data.data.profileUrl}" alt="">
+                            <img src="${data.data.profileImage}" alt="">
                         </div>
                         <div class="post-content">
                             <div class="post-user-info light-text">
@@ -654,14 +656,14 @@
                                 <i class="fas fa-check-circle"></i>
                                 <span>@${data.data.userId}</span>
                             </div>
-                            <p class="post-text light-text">${data.data.desc}</p>
+                            <p class="post-text light-text">${data.data.description}</p>
                             <div class="post-img">
-                                <img src="${data.data.imageUrl}" alt="post">
+                                <img src="${data.data.postImage}" alt="post">
                             </div>
                         </div>
                     </div>
                     <button onClick={fetchPost()} id="back_button"> Back To All Posts</Button>
-                    <button onClick={delid(${data.data.postId})} id="delete_button">Delete</Button>
+                    <button onClick={delid('${data.data.postId}')} id="delete_button">Delete</Button>
                     `
                 } catch (error) {
                     // console.log(4)
@@ -685,32 +687,32 @@
             const input2 = document.querySelector('#desc')
             const input3 = document.querySelector('#imageUrl')
             const formAlert = document.querySelector('.form-alert')
-                btn.addEventListener('click', async function postJSON(e) {
-                    try {
-                      e.preventDefault();
-                      const data={"postId":input1.value,
-                            "userId":"harshitchordia21",
-                            "userName":"Harshit Pralay Chordiya",
-                            "desc":input2.value,
-                            "imageUrl":input3.value,
-                            "profileUrl":"https://avatars.githubusercontent.com/u/119834957?v=4"
-                            }
-                      const response = await fetch("http://localhost:8080/posts/", {
-                        method: "POST",
-                        headers: {
-                          "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(data),
-                      });
-            
-                      const result = await response.json();
-                      console.log("Success:", result);
-                      window.location.reload();
-                    } catch (error) {
-                      console.error("Error:", error);
-                    }
-                  }
-                  )
+            btn.addEventListener('click', async function postJSON(e) {
+                try {
+                  e.preventDefault();
+                  const data={
+                        "userId":"harshitchordia21",
+                        "userName":"Harshit Pralay Chordiya",
+                        "description":input2.value,
+                        "postImage":input3.value,
+                        "profileImage":"https://avatars.githubusercontent.com/u/119834957?v=4"
+                        }
+                  const response = await fetch("http://localhost:8080/posts/", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json ",
+                    },
+                    body: JSON.stringify(data),
+                  });
+        
+                  const result = await response.json();
+                  console.log("Success:", result);
+                  window.location.reload();
+                } catch (error) {
+                  console.error("Error:", error);
+                }
+              }
+              )
     </script>
 
 </body>
